@@ -1,8 +1,9 @@
 """Toute les routes et les Formulaires"""
-from .app import app, db
+from .app import app
 # from .models import Materiel, Utilisateur, Domaine, Categorie, Role, Commande , filter_commands
 
-from flask import jsonify, render_template, url_for, redirect, request, flash
+from flask import render_template
+# from flask import jsonify, render_template, url_for, redirect, request, flash
 # from flask_login import login_required, login_user, logout_user, current_user
 # from flask_wtf import FlaskForm
 # from wtforms import StringField, HiddenField, PasswordField, SelectField, RadioField, IntegerField
