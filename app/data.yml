@@ -1,0 +1,99 @@
+Role:
+  - {idRole: 1, intitule: 'Administrateur'}
+  - {idRole: 2, intitule: 'Professeur'}
+  - {idRole: 3, intitule: 'Etablissement'}
+
+Utilisateur:
+  - {idUti: 1, idRole: 1, nomUti: 'Doe', prenomUti: 'John', emailUti: 'johndoe@gmail.com', telUti: '0142424242', password: 'admin', modifications: True}
+  - {idUti: 2, idRole: 2, nomUti: 'Obi', prenomUti: 'Leo', emailUti: 'leoobi@gmail.com', telUti: '0648484848', password: 'Password', modifications: True}
+  - {idUti: 3, idRole: 2, nomUti: 'Lea', prenomUti: 'Rose', emailUti: 'roselea@gmail.com', telUti: '0162626262', password: 'Jai', modifications: False}
+  - {idUti: 4, idRole: 3, nomUti: 'Jr.', prenomUti: 'Tim', emailUti: 'timjr@gmail.com', telUti: '0142424242', password: '1234', modifications: False}
+  - {idUti: 5, idRole: 3, nomUti: 'Zed', prenomUti: 'Zoey', emailUti: 'zoeyzed@gmail.com', telUti: '0142424242', password: 'Dalaigre', modifications: True}
+
+Domaine:
+  - {codeD: 1, nomD: 'Appareillage'}
+  - {codeD: 2, nomD: 'Verrerie et associés'}
+  - {codeD: 3, nomD: 'Produits Chimiques'}
+  - {codeD: 4, nomD: 'Matériel de Laboratoire'}
+  - {codeD: 5, nomD: 'Média'}
+  - {codeD: 6, nomD: 'Matériel Électrique'}
+
+Categorie:
+  - {codeC: 1, nomC: 'Observation', codeD: 1}
+  - {codeC: 2, nomC: 'Mesures', codeD: 1}
+  - {codeC: 3, nomC: 'ExAO', codeD: 1}
+  - {codeC: 4, nomC: 'Multimédia', codeD: 1}
+  - {codeC: 5, nomC: 'Expérimentation', codeD: 1}
+  - {codeC: 6, nomC: 'Divers', codeD: 1}
+  - {codeC: 7, nomC: 'Verrerie', codeD: 2}
+  - {codeC: 8, nomC: 'Produits Organiques', codeD: 3}
+  - {codeC: 9, nomC: 'Produits Minéraux', codeD: 3}
+  - {codeC: 10, nomC: 'Enzymes', codeD: 3}
+  - {codeC: 11, nomC: 'Colorants', codeD: 3}
+  - {codeC: 12, nomC: 'Entretien', codeD: 3}
+  - {codeC: 13, nomC: 'Autres', codeD: 3}
+  - {codeC: 14, nomC: 'Appareils de labo', codeD: 4}
+  - {codeC: 15, nomC: 'Sécurité', codeD: 4}
+  - {codeC: 16, nomC: 'Fournitures', codeD: 4}
+  - {codeC: 17, nomC: 'Mobilier', codeD: 4}
+  - {codeC: 18, nomC: 'Divers', codeD: 4}
+  - {codeC: 19, nomC: 'Logiciels', codeD: 5}
+  - {codeC: 20, nomC: 'DVD/VHS', codeD: 5}
+  - {codeC: 21, nomC: 'Manuels Scolaires', codeD: 5}
+  - {codeC: 22, nomC: 'Livres Scientifiques', codeD: 5}
+  - {codeC: 23, nomC: 'Cartes/Posters', codeD: 5}
+  - {codeC: 24, nomC: 'Divers', codeD: 5}
+  - {codeC: 25, nomC: 'Générateurs', codeD: 6}
+  - {codeC: 26, nomC: 'Mesures', codeD: 6}
+  - {codeC: 27, nomC: 'Récepteurs', codeD: 6}
+  - {codeC: 28, nomC: 'Connectique', codeD: 6}
+  - {codeC: 29, nomC: 'Métaux', codeD: 6}
+  - {codeC: 30, nomC: 'Divers', codeD: 6}
+
+Materiel:
+  - {refMateriel: 1, nomMateriel: 'Microscope Électronique', precisionMateriel: 'Armoire 1 Tiroir A', commentaire: '', qteMateriel: 10, unite: null, complements: "observer des échantillons à l'échelle microscopique", ficheFDS: null, seuilQte: 2, seuilPeremption: null, datePeremption: null, codeC: 1, codeD: 1, qteMax: 10, qteRestante: 5, image: Screenshot_63.png}
+  - {refMateriel: 2, nomMateriel: 'Spectrophotomètre', precisionMateriel: 'Armoire 1 Tiroir A', commentaire: '', qteMateriel: 10, unite: null, complements: "mesure l'absorbance ou la transmission de la lumière", ficheFDS: null, seuilQte: 2, seuilPeremption: null, datePeremption: null, codeC: 2, codeD: 1, qteMax: 10, qteRestante: 4, image: null}
+  - {refMateriel: 3, nomMateriel: 'Ordinateur', precisionMateriel: 'Armoire 1 Tiroir B', commentaire: '', qteMateriel: 50, unite: null, complements: "enregistrer, analyser et afficher les données", ficheFDS: null, seuilQte: 2, seuilPeremption: null, datePeremption: null, codeC: 3, codeD: 1, qteMax: 50, qteRestante: 45, image: Screenshot_63.png}
+  - {refMateriel: 4, nomMateriel: 'Projecteur', precisionMateriel: 'Armoire 1 Tiroir C', commentaire: '', qteMateriel: 5, unite: null, complements: "donner des présentations et des cours interactifs", ficheFDS: null, seuilQte: 2, seuilPeremption: null, datePeremption: null, codeC: 4, codeD: 1, qteMax: 5, qteRestante: 4, image: Screenshot_63.png}
+  - {refMateriel: 5, nomMateriel: 'Réacteur Chimique', precisionMateriel: 'Armoire 1 Tiroir D', commentaire: '', qteMateriel: 10, unite: null, complements: "mener des expériences de synthèse chimique", ficheFDS: null, seuilQte: 2, seuilPeremption: null, datePeremption: null, codeC: 5, codeD: 1, qteMax: 10, qteRestante: 4, image: Screenshot_63.png}
+  - {refMateriel: 6, nomMateriel: 'Gants de sécurité', precisionMateriel: 'Armoire 1 Tiroir D', commentaire: 'à laver après utilisation', qteMateriel: 50, unite: null, complements: "protéger les chercheurs des produits chimiques potentiellement dangereux", ficheFDS: null, seuilQte: 2, seuilPeremption: null, datePeremption: null, codeC: 6, codeD: 1, qteMax: 50, qteRestante: 45, image: Screenshot_63.png}
+  - {refMateriel: 7, nomMateriel: 'Tube à essai', precisionMateriel: 'Armoire 2 Tiroir A', commentaire: '', qteMateriel: 50, unite: null, complements: "petits tubes en verre", ficheFDS: null, seuilQte: 12, seuilPeremption: null, datePeremption: null, codeC: 7, codeD: 2, qteMax: 50, qteRestante: 40, image: Screenshot_63.png}
+  - {refMateriel: 8, nomMateriel: 'Bécher', precisionMateriel: 'Armoire 2 Tiroir C', commentaire: '', qteMateriel: 30, unite: null, complements: "récipients cylindriques en verre avec un bord droit", ficheFDS: null, seuilQte: 7, seuilPeremption: null, datePeremption: null, codeC: 7, codeD: 2, qteMax: 50, qteRestante: 40, image: Screenshot_63.png}
+  - {refMateriel: 9, nomMateriel: 'Fiole Conique', precisionMateriel: 'Armoire 2 Tiroir D', commentaire: '', qteMateriel: 30, unite: null, complements: "mélanger, chauffer, ou contenir des liquides", ficheFDS: null, seuilQte: 7, seuilPeremption: null, datePeremption: null, codeC: 7, codeD: 2, qteMax: 50, qteRestante: 40, image: Screenshot_63.png}
+  - {refMateriel: 10, nomMateriel: 'Acétone', precisionMateriel: 'Armoire 3 Tiroir A', commentaire: '', qteMateriel: 1000, unite: 'ml', complements: "nettoyer du matériel de laboratoire", ficheFDS: null, seuilQte: null, seuilPeremption: 30, datePeremption: '2023-12-30', codeC: 8, codeD: 3, qteMax: 2000, qteRestante: 500, image: Screenshot_63.png}
+  - {refMateriel: 11, nomMateriel: 'Acide Sulfurique', precisionMateriel: 'Armoire 3 Tiroir B', commentaire: '', qteMateriel: 1000, unite: 'ml', complements: "la digestion des échantillons et la préparation de solutions réactives", ficheFDS: null, seuilQte: null, seuilPeremption: 30, datePeremption: '2023-12-30', codeC: 9, codeD: 3, qteMax: 2000, qteRestante: 500, image: Screenshot_63.png}
+  - {refMateriel: 12, nomMateriel: 'Amylase', precisionMateriel: 'Armoire 3 Tiroir C', commentaire: '', qteMateriel: 1000, unite: 'ml', complements: "catalyse la dégradation de l'amidon en sucres plus simples", ficheFDS: null, seuilQte: null, seuilPeremption: 30, datePeremption: '2023-12-30', codeC: 10, codeD: 3, qteMax: 2000, qteRestante: 400, image: Screenshot_63.png}
+  - {refMateriel: 13, nomMateriel: 'Bleu de méthylène', precisionMateriel: 'Armoire 3 Tiroir D', commentaire: '', qteMateriel: 1000, unite: 'ml', complements: "coloration des cellules", ficheFDS: null, seuilQte: null, seuilPeremption: 30, datePeremption: '2023-12-30', codeC: 11, codeD: 3, qteMax: 2000, qteRestante: 500, image: Screenshot_63.png}
+  - {refMateriel: 14, nomMateriel: 'Solution de détartrage', precisionMateriel: 'Armoire 3 Tiroir E', commentaire: '', qteMateriel: 500, unite: 'ml', complements: "éliminer les dépôts minéraux", ficheFDS: null, seuilQte: null, seuilPeremption: 125, datePeremption: '2023-12-30', codeC: 12, codeD: 3, qteMax: 2000, qteRestante: 560, image: Screenshot_63.png}
+  - {refMateriel: 15, nomMateriel: 'Silice gel', precisionMateriel: 'Armoire 3 Tiroir F', commentaire: '', qteMateriel: 1000, unite: 'g', complements: "absorber l'humidité", ficheFDS: null, seuilQte: null, seuilPeremption: 30, datePeremption: '2023-12-30', codeC: 13, codeD: 3, qteMax: 2000, qteRestante: 450, image: Screenshot_63.png}
+  - {refMateriel: 16, nomMateriel: 'Spectrophotomètre UV-Visible', precisionMateriel: 'Armoire 4 Tiroir A', commentaire: '', qteMateriel: 5, unite: null, complements: "mesurer la transmission de la lumière", ficheFDS: null, seuilQte: 2, seuilPeremption: null, datePeremption: null, codeC: 14, codeD: 4, qteMax: 5, qteRestante: 5, image: Screenshot_63.png}
+  - {refMateriel: 17, nomMateriel: 'Douche de sécurité', precisionMateriel: 'Salle 1', commentaire: '', qteMateriel: 2, unite: null, complements: "rincer rapidement une personne en cas d'exposition à des produits chimiques dangereux", ficheFDS: null, seuilQte: 2, seuilPeremption: null, datePeremption: null, codeC: 15, codeD: 4, qteMax: 5, qteRestante: 4, image: Screenshot_63.png}
+  - {refMateriel: 18, nomMateriel: 'Pipettes', precisionMateriel: 'Armoire 4 Tiroir B', commentaire: '', qteMateriel: 30, unite: null, complements: "prélever et transférer des volumes précis de liquides", ficheFDS: null, seuilQte: 2, seuilPeremption: null, datePeremption: null, codeC: 16, codeD: 4, qteMax: 50, qteRestante: 45, image: Screenshot_63.png}
+  - {refMateriel: 19, nomMateriel: 'Hotte chimique', precisionMateriel: 'Armoire 4 Tiroir C', commentaire: '', qteMateriel: 5, unite: null, complements: "enceinte de sécurité", ficheFDS: null, seuilQte: 2, seuilPeremption: null, datePeremption: null, codeC: 17, codeD: 4, qteMax: 10, qteRestante: 1, image: Screenshot_63.png}
+  - {refMateriel: 20, nomMateriel: 'Gants de laboratoire', precisionMateriel: 'Armoire 4 Tiroir C', commentaire: 'à laver après utilisation', qteMateriel: 50, unite: null, complements: "protéger les mains des chercheurs", ficheFDS: null, seuilQte: 2, seuilPeremption: null, datePeremption: null, codeC: 18, codeD: 4, qteMax: 100, qteRestante: 55, image: Screenshot_63.png}
+  - {refMateriel: 21, nomMateriel: 'ChemDraw', precisionMateriel: '', commentaire: '', qteMateriel: 1, unite: null, complements: "logiciel de dessin chimique", ficheFDS: null, seuilQte: 2, seuilPeremption: null, datePeremption: null, codeC: 19, codeD: 5, qteMax: 1, qteRestante: 1, image: Screenshot_63.png}
+  - {refMateriel: 22, nomMateriel: 'DVD de formation en sécurité chimique', precisionMateriel: 'Armoire 5 Tiroir A', commentaire: '', qteMateriel: 5, unite: null, complements: "vidéos explicatives sur les bonnes pratiques de sécurité", ficheFDS: null, seuilQte: 2, seuilPeremption: null, datePeremption: null, codeC: 20, codeD: 5, qteMax: 20, qteRestante: 20, image: Screenshot_63.png}
+  - {refMateriel: 23, nomMateriel: 'Chimie Organique de Paula Yurkanis Bruice', precisionMateriel: 'Armoire 5 Tiroir B', commentaire: '', qteMateriel: 15, unite: null, complements: "principes fondamentaux de la chimie organique", ficheFDS: null, seuilQte: 2, seuilPeremption: null, datePeremption: null, codeC: 21, codeD: 5, qteMax: 20, qteRestante: 5, image: Screenshot_63.png}
+  - {refMateriel: 24, nomMateriel: 'Chimie Physique de Peter Atkins et Julio d Paula', precisionMateriel: 'Armoire 5 Tiroir B', commentaire: '', qteMateriel: 5, unite: null, complements: "principes fondamentaux de la chimie physique", ficheFDS: null, seuilQte: 2, seuilPeremption: null, datePeremption: null, codeC: 22, codeD: 5, qteMax: 20, qteRestante: 3, image: Screenshot_63.png}
+  - {refMateriel: 25, nomMateriel: 'Tableau périodique', precisionMateriel: 'Armoire 5 Tiroir C', commentaire: '', qteMateriel: 5, unite: null, complements: "informations sur les éléments chimiques", ficheFDS: null, seuilQte: 2, seuilPeremption: null, datePeremption: null, codeC: 23, codeD: 5, qteMax: 50, qteRestante: 7, image: Screenshot_63.png}
+  - {refMateriel: 26, nomMateriel: 'Articles scientifiques', precisionMateriel: 'Armoire 5 Tiroir C', commentaire: '', qteMateriel: 5, unite: null, complements: "référence pour la recherche et la littérature scientifique", ficheFDS: null, seuilQte: 2, seuilPeremption: null, datePeremption: null, codeC: 24, codeD: 5, qteMax: 50, qteRestante: 49, image: Screenshot_63.png}
+  - {refMateriel: 27, nomMateriel: 'Alimentation électrique réglable', precisionMateriel: 'Armoire 6 Tiroir A', commentaire: '', qteMateriel: 5, unite: null, complements: "fournir des courants électriques variables", ficheFDS: null, seuilQte: 2, seuilPeremption: null, datePeremption: null, codeC: 25, codeD: 6, qteMax: 10, qteRestante: 2, image: Screenshot_63.png}
+  - {refMateriel: 28, nomMateriel: 'Multimètre', precisionMateriel: 'Armoire 6 Tiroir A', commentaire: '', qteMateriel: 15, unite: null, complements: "mesure électrique polyvalent utilisé", ficheFDS: null, seuilQte: 2, seuilPeremption: null, datePeremption: null, codeC: 26, codeD: 6, qteMax: 50, qteRestante: 25, image: Screenshot_63.png}
+  - {refMateriel: 29, nomMateriel: 'Chauffe-ballon', precisionMateriel: 'Armoire 6 Tiroir B', commentaire: '', qteMateriel: 5, unite: null, complements: "chauffer des réactions chimiques dans un ballon", ficheFDS: null, seuilQte: 2, seuilPeremption: null, datePeremption: null, codeC: 27, codeD: 6, qteMax: 10, qteRestante: 6, image: Screenshot_63.png}
+  - {refMateriel: 30, nomMateriel: 'Câbles de liaison BNC', precisionMateriel: 'Armoire 6 Tiroir C', commentaire: '', qteMateriel: 5, unite: null, complements: "connecter des instruments de mesure", ficheFDS: null, seuilQte: 2, seuilPeremption: null, datePeremption: null, codeC: 28, codeD: 6, qteMax: 10, qteRestante: 4, image: Screenshot_63.png}
+  - {refMateriel: 31, nomMateriel: 'Fil de platine', precisionMateriel: 'Armoire 6 Tiroir C', commentaire: '', qteMateriel: 5, unite: 'm', complements: "fabriquer des électrodes et des capteurs électrochimiques", ficheFDS: null, seuilQte: 2, seuilPeremption: null, datePeremption: null, codeC: 29, codeD: 6, qteMax: 10, qteRestante: 1, image: Screenshot_63.png}
+  - {refMateriel: 32, nomMateriel: 'Fusibles électriques', precisionMateriel: 'Armoire 6 Tiroir C', commentaire: '', qteMateriel: 5, unite: null, complements: "protéger les circuits électriques sensibles", ficheFDS: null, seuilQte: 2, seuilPeremption: null, datePeremption: null, codeC: 30, codeD: 6, qteMax: 10, qteRestante: 5, image: Screenshot_63.png}
+  - {refMateriel: 33, nomMateriel: 'Burette', precisionMateriel: 'Armoire 2 Tiroir B', commentaire: '', qteMateriel: 50, unite: null, complements: "mesurer précisément le volume d'une solution versée dans une autre", ficheFDS: null, seuilQte: 12, seuilPeremption: null, datePeremption: null, codeC: 7, codeD: 2, qteMax: 50, qteRestante: 40, image: Screenshot_63.png}
+
+
+Commande:
+  - {numeroCommande: 1, dateCommande: '2023-10-23', dateReception: '2023-10-30', statut: 'Livrée', idUti: 2, refMateriel: 1, qteCommandee: 10}
+  - {numeroCommande: 2, dateCommande: '2023-10-23', dateReception: '2023-10-30', statut: 'Livrée', idUti: 2, refMateriel: 2, qteCommandee: 10}
+  - {numeroCommande: 3, dateCommande: '2023-10-25', dateReception: '2023-11-25', statut: 'En cours', idUti: 3, refMateriel: 14, qteCommandee: 10}
+  - {numeroCommande: 4, dateCommande: '2023-10-25', dateReception: '2023-11-25', statut: 'En cours', idUti: 2, refMateriel: 18, qteCommandee: 10}
+  - {numeroCommande: 5, dateCommande: '2023-10-27', dateReception: '2023-11-23', statut: 'A valider', idUti: 3, refMateriel: 33, qteCommandee: 10}
+  - {numeroCommande: 6, dateCommande: '2023-10-27', dateReception: '2023-11-23', statut: 'A valider', idUti: 3, refMateriel: 32, qteCommandee: 20}
+
+Alerte:
+  - {idAlerte: 1, refMateriel: 25, commentaire: 'Alerte de quantité'}
+  - {idAlerte: 2, refMateriel: 26, commentaire: 'Alerte de quantité'}

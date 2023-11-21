@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    {% block head %}
+      <meta charset="utf-8">
+      <title>FestIUTO</title>
+      <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/pos.css') }}">
+    {% endblock %}
+  </head>
+  <body>
+    <header>
+      <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo du site">
+      <nav>
+        <ul>
+          <li><a href="{{ url_for('accueil') }}">Accueil</a></li>
+          <li><a href="{{ url_for('programmation') }}">Programmation</a></li>
+          <li><a href="{{ url_for('reservation') }}">Réservation</a></li>
+        </ul>
+        <button id="espace-compte">Espace compte</button>
+      </nav>
+    </header>
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+    <footer>
+      <p>© 2023-2024 Gestlab.</p>
+    </footer>
+  </body>
+</html>
