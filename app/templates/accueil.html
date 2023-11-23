@@ -1,17 +1,19 @@
 {% extends "base-sans-nav.html" %}
 {% block content %}
-<section>
-  <h1 id="titre-accueil">Lorem Ipsum</h1>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor scelerisque ornare. Integer massa massa, pharetra vel posuere at, sodales sed lectus. Praesent pharetra est urna, eu tincidunt ante placerat in. Duis ut sapien a metus varius faucibus vel eu enim. </p>
-  <button>Voir la programmation</button>
-  <button>Faire une réservation</button>
-  <article>
-    <p>Suivez-nous !</p>
-    <ul>
-      <li></li>
-      <li></li>
-    </ul>
-  </article>
-  <img class="img-accueil" src="{{ url_for('static', filename='images/accueil.png') }}" alt="Image de fête dans un cadre">
-</section>
+<main id="main-accueil">
+  <section id="section-accueil">
+    <h1 id="titre-accueil">Lorem Ipsum</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor scelerisque ornare. Integer massa massa, pharetra vel posuere at, sodales sed lectus. Praesent pharetra est urna, eu tincidunt ante placerat in. Duis ut sapien a metus varius faucibus vel eu enim. </p>
+    <button>Voir la<br>programmation</button>
+    <button>Faire une<br>réservation</button>
+    <article id="article-accueil">
+      <p>Suivez-nous !</p>
+      <ul>
+        <li></li>
+        <li></li>
+      </ul>
+    </article>
+  </section>
+  <img id="img-accueil" src="{{ url_for('static', filename='images/accueil.png') }}" alt="Image de fête dans un cadre">
+</main>
 {% endblock %}

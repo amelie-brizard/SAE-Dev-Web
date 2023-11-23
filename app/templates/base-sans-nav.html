@@ -9,13 +9,13 @@
   </head>
   <body>
     <header>
-      <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo du site">
+      <div id="bloc-logo-nav">
+        <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo du site">
+      </div>
       <button id="espace-compte">Espace compte</button>
     </header>
-    <main>
-      {% block content %}
-      {% endblock %}
-    </main>
+    {% block content %}
+    {% endblock %}
     <footer>
       <p>© 2023-2024 Gestlab.</p>
     </footer>

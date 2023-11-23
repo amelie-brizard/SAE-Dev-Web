@@ -1,0 +1,40 @@
+/* Barre de navigation */
+
+header {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+#bloc-logo-nav {
+    flex-basis: 80%;
+    flex-grow: 1;
+}
+
+header button {
+    flex-basis: 10%;
+    flex-grow: 0;
+}
+
+/* CSS pour la page d'accueil. */
+
+#main-accueil {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+#section_accueil, #img_accueil {
+    flex-basis: 50%;
+    flex-grow: 0;
+}
+
+#article-accueil, #article-accueil ul {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+#article-accueil ul li {
+    flex-basis: 50%;
+    flex-grow: 0;
+}
+
+/*  */

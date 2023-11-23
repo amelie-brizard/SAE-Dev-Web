@@ -11,15 +11,17 @@
   </head>
   <body>
     <header>
-      <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo du site">
-      <nav>
-        <ul>
-          <li><a href="{{ url_for('accueil') }}">Accueil</a></li>
-          <li><a href="{{ url_for('programmation') }}">Programmation</a></li>
-          <li><a href="{{ url_for('reservation') }}">Réservation</a></li>
-        </ul>
-        <button id="espace-compte">Espace compte</button>
-      </nav>
+      <div id="bloc-logo-nav">
+        <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo du site">
+        <nav>
+          <ul>
+            <li><a href="{{ url_for('accueil') }}">Accueil</a></li>
+            <li><a href="{{ url_for('programmation') }}">Programmation</a></li>
+            <li><a href="{{ url_for('reservation') }}">Réservation</a></li>
+          </ul>
+        </nav>
+      </div>
+      <button id="espace-compte">Espace compte</button>
     </header>
     <main>
       {% block content %}
