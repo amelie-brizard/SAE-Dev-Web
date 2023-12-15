@@ -1,0 +1,59 @@
+/* Style accueil */
+h1 {
+    font-size: 8em;
+    margin: 0px;
+    line-height: 0.9em;
+}
+
+body {
+    background-image: url("../images/accueil.png");
+    background-repeat: no-repeat;
+    background-position: 90% 50%;
+    background-size: 38em;
+}
+
+section {
+    width: 45%;
+}
+
+article {
+    margin-top: 0.5em;
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+
+article ul li img {
+    width: 1.4em;
+}
+
+article ul {
+    padding-left: 1.4em;
+}
+
+/* Positionnement accueil */
+article, article ul {
+    display: flex;
+    flex-wrap: nowrap;
+    list-style-type: none;
+}
+
+article ul li {
+    flex-basis: 50%;
+    flex-grow: 0;
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+}
+
+section > p {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+section button {
+    font-size: larger;
+    margin-left: 0em;
+}
+
+main {
+    padding: 1.8em;
+}

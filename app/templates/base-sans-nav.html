@@ -6,6 +6,8 @@
     <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/pos.css') }}">
+    {% block styles %}
+    {% endblock %}
   </head>
   <body>
     <header>

@@ -1,19 +1,23 @@
 {% extends "base-sans-nav.html" %}
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/accueil.css') }}">
+{% endblock %}
 {% block content %}
-<main id="main-accueil">
-  <section id="section-accueil">
-    <h1 id="titre-accueil">Lorem Ipsum</h1>
+<main>
+  <section>
+    <h1>Lorem Ipsum</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor scelerisque ornare. Integer massa massa, pharetra vel posuere at, sodales sed lectus. Praesent pharetra est urna, eu tincidunt ante placerat in. Duis ut sapien a metus varius faucibus vel eu enim. </p>
     <button>Voir la<br>programmation</button>
     <button>Faire une<br>réservation</button>
-    <article id="article-accueil">
+    <article>
       <p>Suivez-nous !</p>
       <ul>
-        <li></li>
-        <li></li>
+        <li>――――――</li>
+        <li><img class="facebook-icon" src="{{ url_for('static', filename='images/facebook.png') }}" alt="Logo Facebook"></li>
+        <li><img class="twitter-icon" src="{{ url_for('static', filename='images/twitter.png') }}" alt="Logo Twitter"></li>
+        <li><img class="instagram" src="{{ url_for('static', filename='images/instagram.png') }}" alt="Logo Instagram"></li>
       </ul>
     </article>
   </section>
-  <img id="img-accueil" src="{{ url_for('static', filename='images/accueil.png') }}" alt="Image de fête dans un cadre">
 </main>
 {% endblock %}

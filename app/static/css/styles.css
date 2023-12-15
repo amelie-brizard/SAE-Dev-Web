@@ -15,6 +15,10 @@ body {
     font-family: "garet-book";
 }
 
+p {
+    font-size: large;
+}
+
 button {
     background-color: transparent;
     border: solid #e5e900;
@@ -22,8 +26,6 @@ button {
     text-transform: uppercase;
     font-weight: bold;
     font-size: 1em;
-    padding: 0.2em;
-    /* height: 2.8em; */
     padding-left: 1.5em;
     padding-right: 1.5em;
     padding-bottom: 0.5em;
@@ -37,32 +39,20 @@ h1 {
 
 /* CSS pour la barre de navigation */
 header img {
-    width: 2.8em;
-    height: 2.8em;
-    margin: 0em;
+    width: 3.5em;
+    height: 3.5em;
 }
 
 header button {
     margin: 0.3em;
+    height: 3.2em;
 }
 
-/* CSS pour la page d'accueil */
-#titre-accueil {
-    font-size: 8em;
+header {
+    padding: 2em;
 }
 
-#main-accueil {
-    margin-left: 2.5em;
-    margin-right: 5em;
-    width: 100%;
-}
-
-#img-accueil {
-    object-position: right;
-    width: 20em;
-}
-
-#article-accueil {
-    text-transform: uppercase;
-    font-weight: bolder;
+footer {
+    padding-left: 1.8em;
+    padding-right: 1.8em;
 }
