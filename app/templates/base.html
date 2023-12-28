@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <title>FestIUTO</title>
+  <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+  {% block styles %}
+  {% endblock %}
+</head>
+
+<body>
+  <header>
+    {% if not accueil %}
+    <div class="bloc-logo-nav">
+      <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo du site">
+      <nav class="barre-navigation">
+        <ul class="liste-barre-nav">
+          <li><a href="{{ url_for('accueil') }}">Accueil</a></li>
+          {% if id_page == 1 %}
+          <li><a href="{{ url_for('programmation') }}" class="lien-page-courante">Programmation</a></li>
+          {% else %}
+          <li><a href="{{ url_for('programmation') }}">Programmation</a></li>
+          {% endif %}
+          {% if id_page == 2 %}
+          <li><a href="{{ url_for('reservation') }}" class="lien-page-courante">Réservation</a></li>
+          {% else %}
+          <li><a href="{{ url_for('reservation') }}">Réservation</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+    <button class="espace-compte">Espace compte</button>
+    {% else %}
+    <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo du site">
+    <button class="espace-compte">Espace compte</button>
+    {% endif %}
+  </header>
+  {% block content %}
+  {% endblock %}
+  <footer>
+    <p>© 2023-2024 FestIUTO.</p>
+  </footer>
+</body>
+
+</html>

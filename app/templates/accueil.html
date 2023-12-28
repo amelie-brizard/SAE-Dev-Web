@@ -1,4 +1,4 @@
-{% extends "base-sans-nav.html" %}
+{% extends "base.html" %}
 {% block styles %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/accueil.css') }}">
 {% endblock %}
@@ -6,16 +6,24 @@
 <main>
   <section>
     <h1>Lorem Ipsum</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor scelerisque ornare. Integer massa massa, pharetra vel posuere at, sodales sed lectus. Praesent pharetra est urna, eu tincidunt ante placerat in. Duis ut sapien a metus varius faucibus vel eu enim. </p>
-    <button>Voir la<br>programmation</button>
-    <button>Faire une<br>réservation</button>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor scelerisque ornare. Integer massa massa,
+      pharetra vel posuere at, sodales sed lectus. Praesent pharetra est urna, eu tincidunt ante placerat in. Duis ut
+      sapien a metus varius faucibus vel eu enim. </p>
+    <a href="{{ url_for('programmation') }}"><button>Voir la<br>programmation</button></a>
+    <a href="{{ url_for('reservation') }}"><button>Faire une<br>réservation</button></a>
     <article>
       <p>Suivez-nous !</p>
       <ul>
         <li>――――――</li>
-        <li><img class="facebook-icon" src="{{ url_for('static', filename='images/facebook.png') }}" alt="Logo Facebook"></li>
-        <li><img class="twitter-icon" src="{{ url_for('static', filename='images/twitter.png') }}" alt="Logo Twitter"></li>
-        <li><img class="instagram" src="{{ url_for('static', filename='images/instagram.png') }}" alt="Logo Instagram"></li>
+        <li>
+          <img class="facebook-icon" src="{{ url_for('static', filename='images/facebook.png') }}" alt="Logo Facebook">
+        </li>
+        <li>
+          <img class="twitter-icon" src="{{ url_for('static', filename='images/twitter.png') }}" alt="Logo Twitter">
+        </li>
+        <li>
+          <img class="instagram" src="{{ url_for('static', filename='images/instagram.png') }}" alt="Logo Instagram">
+        </li>
       </ul>
     </article>
   </section>

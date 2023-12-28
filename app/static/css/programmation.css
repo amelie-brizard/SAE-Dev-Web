@@ -1,0 +1,47 @@
+main {
+    text-align: center;
+}
+
+body {
+    background-image: url("../images/programmation.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 80%;
+}
+
+.image-artiste {
+    border-radius: 50%;
+    width: 8em;
+}
+
+.liste-artistes {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0em;
+}
+
+.liste-artistes>li {
+    text-align: center;
+    flex-basis: 33%;
+    margin-bottom: 7em;
+}
+
+.liste-artistes>li>p {
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+h2 {
+    font-size: 1.8em;
+    margin-bottom: 0em;
+}
+
+footer {
+    text-align: center;
+}

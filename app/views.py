@@ -4,6 +4,7 @@ from .app import app
 
 from flask import render_template
 # from flask import jsonify, render_template, url_for, redirect, request, flash
+from flask_login import login_required
 # from flask_login import login_required, login_user, logout_user, current_user
 # from flask_wtf import FlaskForm
 # from wtforms import StringField, HiddenField, PasswordField, SelectField, RadioField, IntegerField
@@ -50,7 +51,48 @@ from hashlib import sha256
 
 @app.route("/")
 def accueil():
-    return render_template("accueil.html")
+    return render_template("accueil.html", accueil=True, id_page=0)
+
+@app.route("/programmation/")
+def programmation():
+    return render_template("programmation.html", accueil=False, id_page=1)
+
+@app.route("/reservation/")
+@login_required
+def reservation():
+    return render_template("reservation.html", accueil=False, id_page=2)
+
+@app.route("/connexion/")
+def connexion():
+    return render_template("connexion.html", accueil=False, id_page=0)
+
+@app.route("/inscription/")
+def inscription():
+    return render_template("inscription.html", accueil=False, id_page=0)
+
+@app.route("/moncompte/")
+@login_required
+def espace_compte():
+    return render_template("espace-compte.html", accueil=False, id_page=0)
+
+@app.route("/moncompte/editioninformations/")
+@login_required
+def edition_informations():
+    return render_template("compte-infos.html", accueil=False, id_page=0)
+
+@app.route("/moncompte/mesfavoris/")
+@login_required
+def mes_favoris():
+    return render_template("favoris.html", accueil=False, id_page=0)
+
+@app.route("/moncompte/mesbillets/")
+@login_required
+def mes_billets():
+    return render_template("billets-achetes.html", accueil=False, id_page=0)
+
+@app.route("/infosartiste/")
+def infos_artiste():
+    return render_template("infos-artistes.html", accueil=False, id_page=0)
 
 # @app.route("/login/", methods=("GET","POST",))
 # def login():

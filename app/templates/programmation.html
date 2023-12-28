@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/programmation.css') }}">
+{% endblock %}
+{% block content %}
+<main>
+    <h1>Programmation</h1>
+    <!-- Formulaire... -->
+    <ul class="liste-artistes">
+        <li>
+            <img class="image-artiste" src="{{ url_for('static', filename='images/placeholder_artiste.jpg') }}" alt="">
+            <h2>Aliquam LIGULA</h2>
+            <p>Style : EDM</p>
+            <p>Du ??/??/????<br>au ??/??/????</p>
+            <p>Paris</p>
+            <button>Voir plus</button>
+        </li>
+        <li>
+            <img class="image-artiste" src="{{ url_for('static', filename='images/placeholder_artiste.jpg') }}" alt="">
+            <h2>Felis MAURIS</h2>
+            <p>Style : Jazz</p>
+            <p>Du ??/??/????<br>au ??/??/????</p>
+            <p>Paris</p>
+            <button>Voir plus</button>
+        </li>
+        <li>
+            <img class="image-artiste" src="{{ url_for('static', filename='images/placeholder_artiste.jpg') }}" alt="">
+            <h2>Aenean ORCI</h2>
+            <p>Style : Pop</p>
+            <p>Du ??/??/????<br>au ??/??/????</p>
+            <p>Paris</p>
+            <button>Voir plus</button>
+        </li>
+        <li>
+            <img class="image-artiste" src="{{ url_for('static', filename='images/placeholder_artiste.jpg') }}" alt="">
+            <h2>Aliquam LIGULA</h2>
+            <p>Style : EDM</p>
+            <p>Du ??/??/????<br>au ??/??/????</p>
+            <p>Paris</p>
+            <button>Voir plus</button>
+        </li>
+        <li>
+            <img class="image-artiste" src="{{ url_for('static', filename='images/placeholder_artiste.jpg') }}" alt="">
+            <h2>Felis MAURIS</h2>
+            <p>Style : Jazz</p>
+            <p>Du ??/??/????<br>au ??/??/????</p>
+            <p>Paris</p>
+            <button>Voir plus</button>
+        </li>
+        <li>
+            <img class="image-artiste" src="{{ url_for('static', filename='images/placeholder_artiste.jpg') }}" alt="">
+            <h2>Aenean ORCI</h2>
+            <p>Style : Pop</p>
+            <p>Du ??/??/????<br>au ??/??/????</p>
+            <p>Paris</p>
+            <button>Voir plus</button>
+        </li>
+    </ul>
+</main>
+{% endblock %}

@@ -31,7 +31,8 @@ article ul {
 }
 
 /* Positionnement accueil */
-article, article ul {
+article,
+article ul {
     display: flex;
     flex-wrap: nowrap;
     list-style-type: none;
@@ -44,7 +45,7 @@ article ul li {
     margin-left: 0.5em;
 }
 
-section > p {
+section>p {
     margin-top: 1.5em;
     margin-bottom: 1.5em;
 }
