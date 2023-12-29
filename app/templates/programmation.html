@@ -1,11 +1,26 @@
 {% extends "base.html" %}
+{% block titre %}
+<title>Programmation - FestIUTO</title>
+{% endblock %}
 {% block styles %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/programmation.css') }}">
 {% endblock %}
 {% block content %}
 <main>
-    <h1>Programmation</h1>
-    <!-- Formulaire... -->
+    <h1 class="titre-principal-page">Programmation</h1>
+    <form id="search" action="recherche" role="search" method="post">
+        <input type="search" name="search" id="searchinput" placeholder="Rechercher" oninput="change()">
+        <select name="Style" id="Style" onchange="change()">
+            <option value="">Style</option>
+            <!-- TODO -->
+        </select>
+        <select name="Lieu" id="Lieu" onchange="change()">
+            <option value="">Lieu</option>
+            <!-- TODO -->
+        </select>
+        <input type="datetime-local" name="datehour" id="datehourinput" oninput="change()">
+        <button class="searchreset" oninput="change()">Réinitialiser</button>
+    </form>
     <ul class="liste-artistes">
         <li>
             <img class="image-artiste" src="{{ url_for('static', filename='images/placeholder_artiste.jpg') }}" alt="">

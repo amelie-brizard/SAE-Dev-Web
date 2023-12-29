@@ -46,6 +46,10 @@ h2 {
     text-transform: uppercase;
 }
 
+.titre-principal-page {
+    font-size: 3em;
+}
+
 /* CSS pour la barre de navigation */
 .logo {
     width: 3.5em;

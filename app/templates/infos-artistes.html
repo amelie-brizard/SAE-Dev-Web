@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block titre %}
+<title>(Nom artiste) - FestIUTO</title>
+{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/infos-artistes.css') }}">
+{% endblock %}
+{% block content %}
+<main>
+    <h1 class="titre-principal-page">(Nom artiste)</h1>
+    <div class="boite-images">
+        <img class="cadre-artiste" src="{{ url_for('static', filename='images/cadre_artiste.png') }}"
+            alt="Cadre photo artiste">
+        <img class="image-artiste" src="{{ url_for('static', filename='images/placeholder_artiste.jpg') }}" alt="">
+    </div>
+    <div class="partie-droite-artiste">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor scelerisque ornare. Integer massa
+            massa,
+            pharetra vel posuere at, sodales sed lectus. Praesent pharetra est urna, eu tincidunt ante placerat in. Duis
+            ut
+            sapien a metus varius faucibus vel eu enim.</p>
+        <p>Style : EDM</p>
+        <h2>Programme</h2>
+        <h3>Paris</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <h4>Date</h4>
+                    </th>
+                    <th>
+                        <h4>Heure</h4>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="premiere-colonne">
+                        <p class="date">15/12/2023</p>
+                    </td>
+                    <td class="deuxieme-colonne">
+                        <p>10h - 12h</p>
+                        <p>14h - 16h</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="premiere-colonne">
+                        <p class="date">18/12/2023</p>
+                    </td>
+                    <td class="deuxieme-colonne">
+                        <p>12h - 14h</p>
+                        <p>18h - 20h</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+{% endblock %}

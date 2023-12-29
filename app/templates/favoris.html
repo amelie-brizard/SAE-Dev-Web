@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block titre %}
+<title>Mes favoris - FestIUTO</title>
+{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/favoris.css') }}">
+{% endblock %}
+{% block content %}
+<main>
+    <h1 class="titre-principal-page">Mes favoris</h1>
+    <form id="search" action="recherche" role="search" method="post">
+        <input type="search" name="search" id="searchinput" placeholder="Rechercher" oninput="change()">
+        <select name="Style" id="Style" onchange="change()">
+            <option value="">Style</option>
+            <!-- TODO -->
+        </select>
+        <select name="Lieu" id="Lieu" onchange="change()">
+            <option value="">Lieu</option>
+            <!-- TODO -->
+        </select>
+        <input type="datetime-local" name="datehour" id="datehourinput" oninput="change()">
+        <button class="searchreset" oninput="change()">Réinitialiser</button>
+    </form>
+    <ul class="liste-artistes">
+        <li>
+            <img class="image-artiste" src="{{ url_for('static', filename='images/placeholder_artiste.jpg') }}" alt="">
+            <h2>Aliquam LIGULA</h2>
+            <p>Style : EDM</p>
+            <p>Du ??/??/????<br>au ??/??/????</p>
+            <p>Paris</p>
+            <button>Voir plus</button>
+        </li>
+        <li>
+            <img class="image-artiste" src="{{ url_for('static', filename='images/placeholder_artiste.jpg') }}" alt="">
+            <h2>Felis MAURIS</h2>
+            <p>Style : Jazz</p>
+            <p>Du ??/??/????<br>au ??/??/????</p>
+            <p>Paris</p>
+            <button>Voir plus</button>
+        </li>
+        <li>
+            <img class="image-artiste" src="{{ url_for('static', filename='images/placeholder_artiste.jpg') }}" alt="">
+            <h2>Aenean ORCI</h2>
+            <p>Style : Pop</p>
+            <p>Du ??/??/????<br>au ??/??/????</p>
+            <p>Paris</p>
+            <button>Voir plus</button>
+        </li>
+        <li>
+            <img class="image-artiste" src="{{ url_for('static', filename='images/placeholder_artiste.jpg') }}" alt="">
+            <h2>Aliquam LIGULA</h2>
+            <p>Style : EDM</p>
+            <p>Du ??/??/????<br>au ??/??/????</p>
+            <p>Paris</p>
+            <button>Voir plus</button>
+        </li>
+        <li>
+            <img class="image-artiste" src="{{ url_for('static', filename='images/placeholder_artiste.jpg') }}" alt="">
+            <h2>Felis MAURIS</h2>
+            <p>Style : Jazz</p>
+            <p>Du ??/??/????<br>au ??/??/????</p>
+            <p>Paris</p>
+            <button>Voir plus</button>
+        </li>
+        <li>
+            <img class="image-artiste" src="{{ url_for('static', filename='images/placeholder_artiste.jpg') }}" alt="">
+            <h2>Aenean ORCI</h2>
+            <p>Style : Pop</p>
+            <p>Du ??/??/????<br>au ??/??/????</p>
+            <p>Paris</p>
+            <button>Voir plus</button>
+        </li>
+    </ul>
+</main>
+{% endblock %}

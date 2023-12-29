@@ -1,0 +1,55 @@
+table,
+td {
+    border: 1px solid white;
+}
+
+h4 {
+    margin: 0em;
+    text-transform: uppercase;
+}
+
+.date {
+    margin-top: 0em;
+}
+
+.image-artiste {
+    width: 25em;
+    border-radius: 50%;
+}
+
+footer {
+    text-align: center;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.titre-principal-page {
+    flex-basis: 100%;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.boite-images {
+    flex-basis: 40%;
+    flex-grow: 0;
+}
+
+.partie-droite-artiste {
+    flex-basis: 60%;
+    flex-grow: 1;
+}
+
+/* .cadre-artiste {
+    top: 15%;
+    left: 2%;
+} */
+
+.image-artiste {
+    position: absolute;
+    top: 35%;
+    left: 10%;
+}
