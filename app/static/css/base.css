@@ -12,14 +12,16 @@
 body {
     background-color: black;
     color: white;
-    font-family: "garet-book";
+    /* font-family: "garet-book"; */
+    font-family: 'Lato';
 }
 
 p {
     font-size: large;
 }
 
-button {
+button,
+.bouton-validation {
     background-color: transparent;
     border: solid #e5e900;
     color: white;

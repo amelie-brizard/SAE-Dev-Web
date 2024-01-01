@@ -1,0 +1,36 @@
+.form-example {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.formulaire-inscription {
+    display: inline-block;
+    width: 25em;
+}
+
+main {
+    width: 45%;
+    text-align: center;
+}
+
+label {
+    font-weight: bold;
+}
+
+label,
+#email,
+#password {
+    flex-basis: 100%;
+    flex-grow: 1;
+    text-transform: uppercase;
+}
+
+.groupement-nom-prenom {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.groupement-nom-prenom>div {
+    flex-basis: 50%;
+    flex-grow: 0;
+}

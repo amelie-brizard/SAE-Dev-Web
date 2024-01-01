@@ -8,18 +8,27 @@
 {% block content %}
 <main>
     <h1 class="titre-principal-page">(Nom artiste)</h1>
-    <div class="boite-images">
-        <img class="cadre-artiste" src="{{ url_for('static', filename='images/cadre_artiste.png') }}"
-            alt="Cadre photo artiste">
-        <img class="image-artiste" src="{{ url_for('static', filename='images/placeholder_artiste.jpg') }}" alt="">
+    <div class="partie-gauche-artiste">
+        <div class="boite-images">
+            <img class="cadre-artiste" src="{{ url_for('static', filename='images/cadre_artiste.png') }}"
+                alt="Cadre photo artiste">
+            <img class="image-artiste" src="{{ url_for('static', filename='images/placeholder_artiste.jpg') }}" alt="">
+        </div>
     </div>
     <div class="partie-droite-artiste">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor scelerisque ornare. Integer massa
-            massa,
-            pharetra vel posuere at, sodales sed lectus. Praesent pharetra est urna, eu tincidunt ante placerat in. Duis
-            ut
-            sapien a metus varius faucibus vel eu enim.</p>
-        <p>Style : EDM</p>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel dolor in augue rhoncus iaculis sed at
+            sem. Morbi sem nunc, tincidunt ut lacus sit amet, facilisis pulvinar odio. Integer id ipsum ac neque
+            lobortis vulputate. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            Nulla eget orci eu est lacinia tincidunt eu eget erat. Vestibulum nisi eros, varius ut est id, congue
+            eleifend diam. Nunc accumsan sollicitudin ante, sit amet porttitor velit aliquam vitae. Aliquam sodales
+            libero in venenatis interdum. Morbi ultricies nunc nec elit varius, gravida mollis ligula posuere. Cras
+            viverra metus a mi suscipit, eu sagittis libero congue. Etiam et iaculis justo. Quisque id ex sem. Sed nec
+            suscipit odio, nec interdum neque. Sed eget eros quis sapien convallis blandit. Donec luctus finibus risus,
+            sed semper purus tincidunt id. Vivamus vitae ligula sollicitudin urna accumsan condimentum in sagittis mi.
+        </p>
+        <p><img class="petites-icone-pages" src="{{ url_for('static', filename='images/music_style.png') }}"
+                alt="Icone style de musique"> Style : EDM</p>
         <h2>Programme</h2>
         <h3><img class="petites-icone-pages" src="{{ url_for('static', filename='images/location.png') }}"
                 alt="Icone lieu"> Paris</h3>
@@ -37,20 +46,20 @@
             <tbody>
                 <tr>
                     <td class="contenu-gauche-tab">
-                        <p class="date">15/12/2023</p>
+                        15/12/2023
                     </td>
                     <td class="contenu-droit-tab">
-                        <p>10h - 12h</p>
-                        <p>14h - 16h</p>
+                        10h - 12h<br>
+                        14h - 16h
                     </td>
                 </tr>
                 <tr>
                     <td class="contenu-gauche-tab">
-                        <p class="date">18/12/2023</p>
+                        18/12/2023
                     </td>
                     <td class="contenu-droit-tab">
-                        <p>12h - 14h</p>
-                        <p>18h - 20h</p>
+                        12h - 14h<br>
+                        18h - 20h
                     </td>
                 </tr>
             </tbody>

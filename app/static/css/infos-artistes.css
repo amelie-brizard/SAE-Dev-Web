@@ -1,9 +1,12 @@
 table,
 th,
 td {
-    /* border: 1px dotted white; */
     border-collapse: collapse;
     margin: auto;
+}
+
+table {
+    width: 50%;
 }
 
 .entete-gauche-tab {
@@ -32,10 +35,8 @@ h2 {
 
 h4 {
     margin: 0em;
-}
-
-.date {
-    margin-top: 0em;
+    font-size: 1em;
+    font-weight: bolder;
 }
 
 .image-artiste {
@@ -60,27 +61,29 @@ main {
     text-align: center;
 }
 
-.boite-images {
-    flex-basis: 40%;
+.partie-gauche-artiste {
+    flex-basis: 35%;
     flex-grow: 0;
 }
 
 .partie-droite-artiste {
     flex-basis: 60%;
     flex-grow: 1;
+    padding-right: 2em;
+    padding-left: 2em;
 }
 
 
 .boite-images {
+    width: 38em;
+    height: 37em;
     position: relative;
     text-align: center;
-}
-
-.boite-images img {
-    position: absolute;
+    margin: auto;
 }
 
 .cadre-artiste {
+    position: absolute;
     z-index: 1;
     width: 38em;
     top: -13%;
@@ -88,12 +91,9 @@ main {
 }
 
 .image-artiste {
+    position: absolute;
     z-index: 2;
     width: 23em;
-    top: 10%;
-    left: 20%;
+    bottom: 29%;
+    left: 25%;
 }
-
-/* .boite-tableau {
-    margin: auto;
-} */
