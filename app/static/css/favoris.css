@@ -1,7 +1,3 @@
-main {
-    text-align: center;
-}
-
 body {
     background-image: url("../images/programmation.png");
     background-repeat: no-repeat;
@@ -37,10 +33,6 @@ body {
 h2 {
     font-size: 1.8em;
     margin-bottom: 0em;
-}
-
-footer {
-    text-align: center;
 }
 
 #search {

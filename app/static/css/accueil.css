@@ -8,8 +8,12 @@ h1 {
 body {
     background-image: url("../images/accueil.png");
     background-repeat: no-repeat;
-    background-position: 90% 50%;
-    background-size: 38em;
+    background-position: 85% 60%;
+    background-size: 36em;
+}
+
+footer {
+    text-align: left;
 }
 
 section {
@@ -57,4 +61,5 @@ section button {
 
 main {
     padding: 1.8em;
+    text-align: left;
 }

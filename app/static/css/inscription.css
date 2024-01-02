@@ -1,36 +1,63 @@
-.form-example {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.formulaire-inscription {
-    display: inline-block;
-    width: 25em;
+body {
+    background-image: url("../images/inscription.png");
+    background-repeat: no-repeat;
+    background-position: 85% 60%;
+    background-size: 36em;
 }
 
 main {
     width: 45%;
-    text-align: center;
+    margin: 1.5em;
+}
+
+.formulaire-inscription {
+    display: flex;
+    flex-wrap: wrap;
+    width: 35em;
+    margin: auto;
+}
+
+.portion-formulaire-haute,
+.portion-formulaire-basse {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1em;
+}
+
+.portion-formulaire-haute {
+    flex-basis: 44%;
+    flex-grow: 0;
+}
+
+.portion-formulaire-basse {
+    flex-basis: 100%;
+    flex-grow: 1;
 }
 
 label {
     font-weight: bold;
-}
-
-label,
-#email,
-#password {
-    flex-basis: 100%;
-    flex-grow: 1;
+    font-size: 1.3em;
     text-transform: uppercase;
 }
 
-.groupement-nom-prenom {
-    display: flex;
-    flex-wrap: nowrap;
+div>input {
+    background-color: white;
+    border: none;
+    font-size: 1em;
+    height: 2em;
+    padding: 0.3em;
+    text-transform: none;
 }
 
-.groupement-nom-prenom>div {
-    flex-basis: 50%;
-    flex-grow: 0;
+label,
+.champ-de-texte {
+    flex-basis: 100%;
+    flex-grow: 1;
+}
+
+.bouton-validation {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }

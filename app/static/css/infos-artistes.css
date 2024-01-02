@@ -44,14 +44,9 @@ h4 {
     border-radius: 50%;
 }
 
-footer {
-    text-align: center;
-}
-
 main {
     display: flex;
     flex-wrap: wrap;
-    text-align: center;
     margin-bottom: 3em;
 }
 

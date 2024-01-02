@@ -82,11 +82,13 @@ h3 {
 header {
     padding: 2em;
     display: flex;
+    margin-bottom: 2em;
 }
 
 footer {
     padding-left: 1.8em;
     padding-right: 1.8em;
+    text-align: center;
 }
 
 .bloc-logo-nav {
@@ -121,4 +123,8 @@ footer {
 
 .lien-page-courante {
     border-bottom: solid white thin;
+}
+
+main {
+    text-align: center;
 }

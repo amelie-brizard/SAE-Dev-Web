@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block titre %}
-<title>(Nom artiste) - FestIUTO</title>
+<title>Inscription - FestIUTO</title>
 {% endblock %}
 {% block styles %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/inscription.css') }}">
@@ -10,27 +10,23 @@
     <h1 class="titre-principal-page">Inscription</h1>
     <p>Vous avez un compte ? <b>Connectez-vous</b> !</p>
     <form action="" method="get" class="formulaire-inscription">
-        <div class="groupement-nom-prenom">
-            <div class="form-example">
-                <label for="name">Prénom</label>
-                <input type="text" name="firstname" id="firstname" required />
-            </div>
-            <div class="form-example">
-                <label for="name">Nom</label>
-                <input type="text" name="lastname" id="lastname" required />
-            </div>
+        <div class="portion-formulaire-haute">
+            <label class="label-haut" for="name">Prénom</label>
+            <input class="champ-de-texte" type="text" name="firstname" id="firstname" required />
         </div>
-        <div class="form-example">
-            <label for="email">Adresse mail</label>
-            <input type="email" name="email" id="email" required />
+        <div class="portion-formulaire-haute">
+            <label class="label-haut" for="name">Nom</label>
+            <input class="champ-de-texte" type="text" name="lastname" id="lastname" required />
         </div>
-        <div class="form-example">
-            <label for="email">Mot de passe</label>
-            <input type="password" name="password" id="password" required />
+        <div class="portion-formulaire-basse">
+            <label class="label-bas" for="email">Adresse mail</label>
+            <input class="champ-de-texte" type="email" name="email" id="email" required />
         </div>
-        <!-- <div class="form-example"> -->
-        <input class="bouton-validation" type="submit" value="Subscribe!" />
-        <!-- </div> -->
+        <div class="portion-formulaire-basse">
+            <label class="label-bas" for="email">Mot de passe</label>
+            <input class="champ-de-texte" type="password" name="password" id="password" required />
+        </div>
+        <input class="bouton-validation" type="submit" value="S'inscrire" />
     </form>
 </main>
 {% endblock %}
