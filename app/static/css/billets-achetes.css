@@ -6,33 +6,35 @@ body {
     background-size: 80%;
 }
 
-.image-artiste {
-    border-radius: 50%;
-    width: 8em;
-}
-
-.liste-artistes {
-    list-style-type: none;
+.liste-billets {
     display: flex;
     flex-wrap: wrap;
-    padding-left: 0em;
+    padding: 0.5em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-right: auto;
+    margin-left: auto;
+    list-style-type: none;
+    width: 95em;
 }
 
-.liste-artistes>li {
-    text-align: center;
-    flex-basis: 33%;
-    margin-top: 3em;
-    margin-bottom: 3em;
+main {
+    padding: 0.3em;
+    margin: 0.3em;
 }
 
-.liste-artistes>li>p {
-    margin-top: 0.8em;
-    margin-bottom: 0.8em;
+.billet-achete {
+    flex-basis: 25.8%;
+    flex-grow: 0;
+    margin: 1.5em;
+    background-color: white;
+    border-radius: 10%;
+    color: black;
+    padding: 2em;
 }
 
 h2 {
-    font-size: 1.8em;
-    margin-bottom: 0em;
+    font-size: 1.5em;
 }
 
 #search {

@@ -1,18 +1,7 @@
 /* CSS général */
-@font-face {
-    font-family: "garet-book";
-    src: url("../font/Garet-Book.ttf");
-}
-
-@font-face {
-    font-family: "garet-heavy";
-    src: url("../font/Garet-Heavy.ttf");
-}
-
 body {
     background-color: black;
     color: white;
-    /* font-family: "garet-book"; */
     font-family: 'Lato';
 }
 
@@ -33,6 +22,18 @@ button,
     padding-bottom: 0.5em;
     padding-top: 0.5em;
     margin: 0.5em;
+}
+
+.searchreset {
+    background-color: #e5e900;
+    border: none;
+    color: black;
+    margin-top: 0em;
+    margin-bottom: 0em;
+    height: 3em;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 button:hover {
@@ -82,7 +83,7 @@ h3 {
 header {
     padding: 2em;
     display: flex;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 }
 
 footer {

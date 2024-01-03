@@ -81,12 +81,12 @@ def edition_informations():
     return render_template("compte-infos.html", accueil=False, id_page=0, moncompte=False)
 
 @app.route("/moncompte/mesfavoris/")
-@login_required
+# @login_required
 def mes_favoris():
     return render_template("favoris.html", accueil=False, id_page=0, moncompte=False)
 
 @app.route("/moncompte/mesbillets/")
-@login_required
+# @login_required
 def mes_billets():
     return render_template("billets-achetes.html", accueil=False, id_page=0, moncompte=False)
 

@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% block titre %}
+<title>Mes billets - FestIUTO</title>
+{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/billets-achetes.css') }}">
+{% endblock %}
+{% block content %}
+<main>
+    <h1 class="titre-principal-page">Mes billets</h1>
+    <form id="search" action="recherche" role="search" method="post">
+        <input type="search" name="search" id="searchinput" placeholder="Rechercher" oninput="change()">
+        <select name="Style" id="Style" onchange="change()">
+            <option value="">Type</option>
+            <!-- TODO -->
+        </select>
+        <select name="Lieu" id="Lieu" onchange="change()">
+            <option value="">Lieu</option>
+            <!-- TODO -->
+        </select>
+        <input type="date" name="datehour" id="datehourinput" oninput="change()">
+        <input class="searchreset" type="button" value="Réinitialiser" oninput="change()">
+    </form>
+    <ul class="liste-billets">
+        <li class="billet-achete">
+            <img class="icones-compte" src="{{ url_for('static', filename='images/icone_billets_black.png') }}"
+                alt="Icone profil">
+            <h2>Billet 1 jour</h2>
+            <p><img class="petites-icone-pages" src="{{ url_for('static', filename='images/price_black.png') }}"
+                    alt="Icone prix"> 3 €</p>
+            <p><img class="petites-icone-pages" src="{{ url_for('static', filename='images/calendar_date_black.png') }}"
+                    alt="Icone calendrier"> Du
+                ??/??/????<br>au ??/??/????</p>
+            <p><img class="petites-icone-pages" src="{{ url_for('static', filename='images/location_black.png') }}"
+                    alt="Icone lieu"> Paris</p>
+        </li>
+        <li class="billet-achete">
+            <img class="icones-compte" src="{{ url_for('static', filename='images/icone_billets_black.png') }}"
+                alt="Icone profil">
+            <h2>Billet 2 jour</h2>
+            <p><img class="petites-icone-pages" src="{{ url_for('static', filename='images/price_black.png') }}"
+                    alt="Icone prix"> 6 €</p>
+            <p><img class="petites-icone-pages" src="{{ url_for('static', filename='images/calendar_date_black.png') }}"
+                    alt="Icone calendrier"> Du
+                ??/??/????<br>au ??/??/????</p>
+            <p><img class="petites-icone-pages" src="{{ url_for('static', filename='images/location_black.png') }}"
+                    alt="Icone lieu"> Paris</p>
+        </li>
+        <li class="billet-achete">
+            <img class="icones-compte" src="{{ url_for('static', filename='images/icone_billets_black.png') }}"
+                alt="Icone profil">
+            <h2>Billet totalité du festival</h2>
+            <p><img class="petites-icone-pages" src="{{ url_for('static', filename='images/price_black.png') }}"
+                    alt="Icone prix"> 21 €</p>
+            <p><img class="petites-icone-pages" src="{{ url_for('static', filename='images/calendar_date_black.png') }}"
+                    alt="Icone calendrier"> Du
+                ??/??/????<br>au ??/??/????</p>
+            <p><img class="petites-icone-pages" src="{{ url_for('static', filename='images/location_black.png') }}"
+                    alt="Icone lieu"> Paris</p>
+        </li>
+        <li class="billet-achete">
+            <img class="icones-compte" src="{{ url_for('static', filename='images/icone_billets_black.png') }}"
+                alt="Icone profil">
+            <h2>Billet 1 jour</h2>
+            <p><img class="petites-icone-pages" src="{{ url_for('static', filename='images/price_black.png') }}"
+                    alt="Icone prix"> 3 €</p>
+            <p><img class="petites-icone-pages" src="{{ url_for('static', filename='images/calendar_date_black.png') }}"
+                    alt="Icone calendrier"> Du
+                ??/??/????<br>au ??/??/????</p>
+            <p><img class="petites-icone-pages" src="{{ url_for('static', filename='images/location_black.png') }}"
+                    alt="Icone lieu"> Paris</p>
+        </li>
+        <li class="billet-achete">
+            <img class="icones-compte" src="{{ url_for('static', filename='images/icone_billets_black.png') }}"
+                alt="Icone profil">
+            <h2>Billet 2 jour</h2>
+            <p><img class="petites-icone-pages" src="{{ url_for('static', filename='images/price_black.png') }}"
+                    alt="Icone prix"> 6 €</p>
+            <p><img class="petites-icone-pages" src="{{ url_for('static', filename='images/calendar_date_black.png') }}"
+                    alt="Icone calendrier"> Du
+                ??/??/????<br>au ??/??/????</p>
+            <p><img class="petites-icone-pages" src="{{ url_for('static', filename='images/location_black.png') }}"
+                    alt="Icone lieu"> Paris</p>
+        </li>
+        <li class="billet-achete">
+            <img class="icones-compte" src="{{ url_for('static', filename='images/icone_billets_black.png') }}"
+                alt="Icone profil">
+            <h2>Billet totalité du festival</h2>
+            <p><img class="petites-icone-pages" src="{{ url_for('static', filename='images/price_black.png') }}"
+                    alt="Icone prix"> 21 €</p>
+            <p><img class="petites-icone-pages" src="{{ url_for('static', filename='images/calendar_date_black.png') }}"
+                    alt="Icone calendrier"> Du
+                ??/??/????<br>au ??/??/????</p>
+            <p><img class="petites-icone-pages" src="{{ url_for('static', filename='images/location_black.png') }}"
+                    alt="Icone lieu"> Paris</p>
+        </li>
+    </ul>
+</main>
+{% endblock %}

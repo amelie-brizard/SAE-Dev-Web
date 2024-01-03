@@ -68,8 +68,7 @@ select {
 }
 
 #searchinput,
-select,
-.searchreset {
+select {
     height: 2.5em;
 }
 
@@ -85,9 +84,4 @@ select {
 .searchreset {
     flex-basis: 10%;
     flex-grow: 0;
-    background-color: #e5e900;
-    border: none;
-    color: black;
-    margin-top: 0em;
-    margin-bottom: 0em;
 }
