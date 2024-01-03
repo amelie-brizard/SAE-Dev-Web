@@ -8,7 +8,7 @@
 {% block content %}
 <main>
     <h1 class="titre-principal-page">Inscription</h1>
-    <p>Vous avez un compte ? <b>Connectez-vous</b> !</p>
+    <p>Vous avez un compte ? <b><a href="{{ url_for('connexion') }}">Connectez-vous</a></b> !</p>
     <form action="" method="get" class="formulaire-inscription">
         <div class="portion-formulaire-haute">
             <label class="label-haut" for="name">Prénom</label>

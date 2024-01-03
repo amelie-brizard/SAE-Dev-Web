@@ -9,6 +9,10 @@ p {
     font-size: large;
 }
 
+p a {
+    color: white;
+}
+
 button,
 .bouton-validation {
     background-color: transparent;

@@ -58,7 +58,7 @@ def programmation():
     return render_template("programmation.html", accueil=False, id_page=1, moncompte=False)
 
 @app.route("/reservation/")
-@login_required
+# @login_required
 def reservation():
     return render_template("reservation.html", accueil=False, id_page=2, moncompte=False)
 

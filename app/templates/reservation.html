@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block titre %}
+<title>Réserver - FestIUTO</title>
+{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/reservation.css') }}">
+{% endblock %}
+{% block content %}
+<main>
+    <h1 class="titre-principal-page">Réservation</h1>
+    <form action="" method="get" class="formulaire-inscription">
+        <div class="portion-formulaire">
+            <label for="typebillet">Type de billet</label>
+            <select class="menuderoulant" name="typebillet" id="typebillet" onchange="change()">
+                <option value=""></option>
+                <!-- TODO -->
+            </select>
+        </div>
+        <div class="portion-formulaire">
+            <label for="lieubillet">Lieu</label>
+            <select class="menuderoulant" name="lieubillet" id="lieubillet" onchange="change()">
+                <option value=""></option>
+                <!-- TODO -->
+            </select>
+        </div>
+        <div class="coordonnees-bancaires">
+            <label>Coordonnées bancaires</label>
+            <input class="champ-de-texte" type="text" name="numcarte" id="numcarte" placeholder="NUMÉRO DE CARTE"
+                required />
+            <input class="champ-de-texte" type="text" name="titulairecarte" id="titulairecarte" placeholder="TITULAIRE"
+                required />
+            <input class="champ-de-texte" type="month" name="moisanneecarte" id="moisanneecarte" placeholder="MM/YY"
+                required />
+            <input class="champ-de-texte" type="number" name="cvvcarte" id="cvvcarte" min="000" max="999"
+                placeholder="CVV" required />
+        </div>
+        <input class="bouton-validation" type="submit" value="Réserver" />
+    </form>
+</main>
+{% endblock %}

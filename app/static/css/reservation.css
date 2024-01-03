@@ -1,0 +1,78 @@
+body {
+    background-image: url("../images/reservation.png");
+    background-repeat: no-repeat;
+    background-position: 20% 65%;
+    background-size: 35em;
+}
+
+main {
+    width: 45%;
+    margin: 2em;
+    margin-right: 4em;
+    margin-left: auto;
+}
+
+.formulaire-inscription {
+    display: flex;
+    flex-wrap: wrap;
+    width: 35em;
+    margin: auto;
+}
+
+.portion-formulaire,
+.coordonnees-bancaires {
+    flex-basis: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1em;
+}
+
+label {
+    font-weight: bold;
+    font-size: 1.3em;
+    text-transform: uppercase;
+}
+
+div>input,
+div>select {
+    background-color: white;
+    border: none;
+    font-size: 1em;
+    padding: 0.3em;
+    text-transform: none;
+}
+
+div>input {
+    height: 2em;
+}
+
+div>select {
+    height: 2.5em;
+}
+
+label,
+.champ-de-texte,
+.menuderoulant {
+    flex-basis: 100%;
+    flex-grow: 1;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+.coordonnees-bancaires>.champ-de-texte {
+    margin: 0.5em;
+}
+
+.bouton-validation {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+#moisanneecarte,
+#cvvcarte {
+    flex-basis: 45%;
+    flex-grow: 0;
+}

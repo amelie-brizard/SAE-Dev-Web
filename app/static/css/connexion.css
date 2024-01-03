@@ -1,0 +1,56 @@
+body {
+    background-image: url("../images/connexion.png");
+    background-repeat: no-repeat;
+    background-position: 20% 85%;
+    background-size: 35em;
+}
+
+main {
+    width: 45%;
+    margin: 2em;
+    margin-right: 4em;
+    margin-left: auto;
+}
+
+.formulaire-inscription {
+    display: flex;
+    flex-wrap: wrap;
+    width: 35em;
+    margin: auto;
+}
+
+.portion-formulaire {
+    flex-basis: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1em;
+}
+
+label {
+    font-weight: bold;
+    font-size: 1.3em;
+    text-transform: uppercase;
+}
+
+div>input {
+    background-color: white;
+    border: none;
+    font-size: 1em;
+    height: 2em;
+    padding: 0.3em;
+    text-transform: none;
+}
+
+label,
+.champ-de-texte {
+    flex-basis: 100%;
+    flex-grow: 1;
+}
+
+.bouton-validation {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
