@@ -17,7 +17,8 @@
   <header>
     {% if not accueil %}
     <div class="bloc-logo-nav">
-      <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo du site">
+      <a href="{{ url_for('accueil') }}"><img class="logo" src="{{ url_for('static', filename='images/logo.png') }}"
+          alt="Logo du site"></a>
       <nav class="barre-navigation">
         <ul class="liste-barre-nav">
           <li><a href="{{ url_for('accueil') }}">Accueil</a></li>
@@ -34,10 +35,14 @@
         </ul>
       </nav>
     </div>
-    <button class="espace-compte">Espace compte</button>
     {% else %}
-    <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo du site">
-    <button class="espace-compte">Espace compte</button>
+    <a href="{{ url_for('accueil') }}"><img class="logo" src="{{ url_for('static', filename='images/logo.png') }}"
+        alt="Logo du site"></a>
+    {% endif %}
+    {% if not moncompte %}
+    <a href="{{ url_for('espace_compte') }}"><button class="espace-compte">Espace compte</button></a>
+    {% else %}
+    <button class="espace-compte">Déconnexion</button>
     {% endif %}
   </header>
   {% block content %}
