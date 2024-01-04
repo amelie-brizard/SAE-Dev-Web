@@ -8,27 +8,35 @@
 {% block content %}
 <main>
     <h1 class="titre-principal-page">(Nom artiste)</h1>
-    <div class="partie-gauche-artiste">
-        <div class="boite-images">
-            <img class="cadre-artiste" src="{{ url_for('static', filename='images/cadre_artiste.png') }}"
-                alt="Cadre photo artiste">
-            <img class="image-artiste" src="{{ url_for('static', filename='images/placeholder_artiste.jpg') }}" alt="">
-        </div>
+    <div class="boite-images">
+        <img class="cadre-artiste" src="{{ url_for('static', filename='images/cadre_artiste.png') }}"
+            alt="Cadre photo artiste">
+        <img class="image-artiste" src="{{ url_for('static', filename='images/placeholder_artiste.jpg') }}" alt="">
     </div>
-    <div class="partie-droite-artiste">
+    <section>
+        <h2>À propos</h2>
         <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel dolor in augue rhoncus iaculis sed at
-            sem. Morbi sem nunc, tincidunt ut lacus sit amet, facilisis pulvinar odio. Integer id ipsum ac neque
-            lobortis vulputate. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-            Nulla eget orci eu est lacinia tincidunt eu eget erat. Vestibulum nisi eros, varius ut est id, congue
-            eleifend diam. Nunc accumsan sollicitudin ante, sit amet porttitor velit aliquam vitae. Aliquam sodales
-            libero in venenatis interdum. Morbi ultricies nunc nec elit varius, gravida mollis ligula posuere. Cras
-            viverra metus a mi suscipit, eu sagittis libero congue. Etiam et iaculis justo. Quisque id ex sem. Sed nec
-            suscipit odio, nec interdum neque. Sed eget eros quis sapien convallis blandit. Donec luctus finibus risus,
-            sed semper purus tincidunt id. Vivamus vitae ligula sollicitudin urna accumsan condimentum in sagittis mi.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tincidunt, leo feugiat volutpat
+            ullamcorper, felis eros gravida elit, at egestas sem dui id diam. Praesent auctor mauris nec neque
+            consequat pharetra. Pellentesque in auctor tellus. Aenean sed dui turpis. Nunc dapibus quam sed mollis
+            pulvinar. Mauris eget finibus neque. Nam nec dolor lectus. Donec porttitor est euismod arcu mollis
+            ultricies. Praesent malesuada purus at sapien hendrerit egestas. Maecenas orci dolor, interdum quis ante
+            et, viverra mattis nisi. Sed id varius enim. Proin suscipit augue nisl, quis pharetra lacus laoreet non.
+            Curabitur a dui urna. Nunc iaculis rhoncus elementum. Pellentesque in dui quam. Aliquam sit amet mi eu
+            dolor consectetur sollicitudin. Pellentesque ex erat, eleifend ac felis et, malesuada vulputate magna.
+            Maecenas non turpis et tellus fringilla consectetur sed ut lectus. Morbi elit nulla, malesuada cursus
+            semper sit amet, varius in ex. Sed efficitur tellus nec dignissim ultrices. Aenean at pretium ex. Donec
+            ultricies sagittis massa, eu consectetur diam molestie nec. Aliquam erat volutpat. Nam lacinia urna
+            nisl, quis ullamcorper elit placerat quis. Donec sit amet molestie est, eu finibus lorem. Ut non eros et
+            eros volutpat aliquet non in urna. Cras sapien diam, vestibulum ut bibendum at, vulputate vitae odio.
+            Morbi ut massa id lorem varius placerat. Integer tristique turpis felis, ac feugiat mi iaculis nec.
+            Donec id felis ligula. Nam non mauris sit amet turpis cursus varius faucibus sed lectus. Maecenas a ante
+            at risus convallis ultrices sit amet nec nisi. Donec finibus faucibus pharetra.
         </p>
         <p><img class="petites-icone-pages" src="{{ url_for('static', filename='images/music_style.png') }}"
                 alt="Icone style de musique"> Style : EDM</p>
+    </section>
+    <section>
         <h2>Programme</h2>
         <h3><img class="petites-icone-pages" src="{{ url_for('static', filename='images/location.png') }}"
                 alt="Icone lieu"> Paris</h3>
@@ -64,6 +72,17 @@
                 </tr>
             </tbody>
         </table>
-    </div>
+    </section>
+    <section>
+        <h2>Activités</h2>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tincidunt, leo feugiat volutpat
+            ullamcorper, felis eros gravida elit, at egestas sem dui id diam. Praesent auctor mauris nec neque
+            consequat pharetra. Pellentesque in auctor tellus. Aenean sed dui turpis. Nunc dapibus quam sed mollis
+            pulvinar. Mauris eget finibus neque. Nam nec dolor lectus. Donec porttitor est euismod arcu mollis
+            ultricies. Praesent malesuada purus at sapien hendrerit egestas. Maecenas orci dolor, interdum quis ante
+            et, viverra mattis nisi. Sed id varius enim. Proin suscipit augue nisl, quis pharetra lacus laoreet non.
+        </p>
+    </section>
 </main>
 {% endblock %}

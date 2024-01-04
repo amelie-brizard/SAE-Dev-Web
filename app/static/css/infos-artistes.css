@@ -6,7 +6,7 @@ td {
 }
 
 table {
-    width: 50%;
+    width: 30%;
 }
 
 .entete-gauche-tab {
@@ -45,50 +45,31 @@ h4 {
 }
 
 main {
-    display: flex;
-    flex-wrap: wrap;
     margin-bottom: 3em;
+    margin-right: 2em;
+    margin-left: 2em;
 }
-
-.titre-principal-page {
-    flex-basis: 100%;
-    flex-grow: 1;
-    text-align: center;
-}
-
-.partie-gauche-artiste {
-    flex-basis: 35%;
-    flex-grow: 0;
-}
-
-.partie-droite-artiste {
-    flex-basis: 60%;
-    flex-grow: 1;
-    padding-right: 2em;
-    padding-left: 2em;
-}
-
 
 .boite-images {
     width: 38em;
-    height: 37em;
+    height: 36em;
     position: relative;
-    text-align: center;
-    margin: auto;
+    float: left;
+    margin-right: 2em;
+    margin-left: 2em;
 }
 
 .cadre-artiste {
     position: absolute;
     z-index: 1;
     width: 38em;
-    top: -13%;
-    left: 10%;
+    left: 0%;
 }
 
 .image-artiste {
     position: absolute;
     z-index: 2;
     width: 23em;
-    bottom: 29%;
-    left: 25%;
+    bottom: 15%;
+    left: 16%;
 }
