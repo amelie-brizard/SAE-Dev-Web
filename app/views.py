@@ -57,3 +57,7 @@ def mes_billets():
 def infos_artiste():
     return render_template("infos-artistes.html", accueil=False, id_page=0, moncompte=False)
 
+@app.route("/gestionconcerts/")
+def gestion_concerts():
+    return render_template("gestion-concerts.html", accueil=True, id_page=0, moncompte=True)
+

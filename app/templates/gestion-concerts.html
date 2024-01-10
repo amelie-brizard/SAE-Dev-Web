@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block titre %}
+<title>Gestion des concerts - FestIUTO</title>
+{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/gestion-concerts.css') }}">
+{% endblock %}
+{% block content %}
+<main>
+    <h1 class="titre-principal-page">Gestion des concerts</h1>
+    <h2>Bienvenue (nomPersonne) !</h2>
+    <p>Sur cette page, vous avez la possibilité de consulter différentes informations utiles concernant la planification
+        de chaque groupe.
+        Vous pourrez aussi gérer leur hébergements.
+    </p>
+    <form id="search" action="recherche" role="search" method="post">
+        <div class="elem-search">
+            <label for="search">Rechercher</label>
+            <input type="search" name="search" id="searchinput" oninput="change()">
+        </div>
+        <div class="elem-search-location">
+            <label for="lieu">Lieu</label>
+            <select name="lieu" id="lieu" onchange="change()">
+                <!-- TODO -->
+            </select>
+        </div>
+        <div class="elem-search-date">
+            <label for="depart">Départ</label>
+            <input type="datetime-local" name="depart" id="datehourinput" oninput="change()">
+        </div>
+        <div class="elem-search-date">
+            <label for="arrivee">Arrivée</label>
+            <input type="datetime-local" name="arrivee" id="datehourinput" oninput="change()">
+        </div>
+        <div class="elem-search-time">
+            <label for="dureeconcert">Durée</label>
+            <input type="time" name="dureeconcert" id="datehourinput" oninput="change()">
+        </div>
+        <div class="elem-search-time">
+            <label for="montage">Montage</label>
+            <input type="time" name="montage" id="datehourinput" oninput="change()">
+        </div>
+        <div class="elem-search-time">
+            <label for="demontage">Démontage</label>
+            <input type="time" name="demontage" id="datehourinput" oninput="change()">
+        </div>
+        <input class="searchreset" type="button" value="Réinitialiser" oninput="change()">
+    </form>
+    <ul class="liste-artistes">
+        <li class="un-artiste">
+            <img class="image-artiste" src="{{ url_for('static', filename='images/placeholder_artiste.jpg') }}" alt="">
+            <h2>(Nom)</h2>
+            <p><img class="petites-icone-pages" src="{{ url_for('static', filename='images/calendar_date_black.png') }}"
+                    alt="Icone calendrier"> Du
+                ??/??/????<br>au ??/??/????</p>
+            <p><img class="petites-icone-pages" src="{{ url_for('static', filename='images/location_black.png') }}"
+                    alt="Icone lieu"> Paris</p>
+            <button>Modifier le logement</button>
+        </li>
+        <li class="un-artiste">
+            <img class="image-artiste" src="{{ url_for('static', filename='images/placeholder_artiste.jpg') }}" alt="">
+            <h2>(Nom)</h2>
+            <p><img class="petites-icone-pages" src="{{ url_for('static', filename='images/calendar_date_black.png') }}"
+                    alt="Icone calendrier"> Du
+                ??/??/????<br>au ??/??/????</p>
+            <p><img class="petites-icone-pages" src="{{ url_for('static', filename='images/location_black.png') }}"
+                    alt="Icone lieu"> Paris</p>
+            <button>Modifier le logement</button>
+        </li>
+        <li class="un-artiste">
+            <img class="image-artiste" src="{{ url_for('static', filename='images/placeholder_artiste.jpg') }}" alt="">
+            <h2>(Nom)</h2>
+            <p><img class="petites-icone-pages" src="{{ url_for('static', filename='images/calendar_date_black.png') }}"
+                    alt="Icone calendrier"> Du
+                ??/??/????<br>au ??/??/????</p>
+            <p><img class="petites-icone-pages" src="{{ url_for('static', filename='images/location_black.png') }}"
+                    alt="Icone lieu"> Paris</p>
+            <button>Modifier le logement</button>
+        </li>
+    </ul>
+</main>
+{% endblock %}

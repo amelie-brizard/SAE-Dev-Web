@@ -1,206 +1,129 @@
-# """Lien avec la Base de données"""
-
-# from base64 import b64encode
+from base64 import b64encode
 # from .app import db, login_manager
+from .app import db
 # from flask_login import UserMixin
 
-# class Role(db.Model):
-#     __tablename__ = "role"
-#     id = db.Column(db.Integer, primary_key=True)
-#     intitule = db.Column(db.String(100))
+from flask_sqlalchemy import CheckConstraint
 
-#     def __repr__(self):
-#         return "<Role (%d) %s>" % (self.id, self.intitule)
+class Activite(db.Model):
+    __tablename__ = 'ACTIVITES'
+    IDactivite = db.Column(db.Integer, primary_key=True)
+    nom_activite = db.Column(db.String(42), nullable=False)
+    description_activite = db.Column(db.Text)
+    IDartiste = db.Column(db.Integer, nullable=False)
+    heure = db.Column(db.Time)
+    date = db.Column(db.Date)
+    lieu_activite = db.Column(db.String(42))
 
+class Artiste(db.Model):
+    __tablename__ = 'ARTISTE'
+    IDartiste = db.Column(db.Integer, primary_key=True)
+    nom_artiste = db.Column(db.String(42), nullable=False)
+    description = db.Column(db.Text)
+    date_arrivee = db.Column(db.Date, CheckConstraint('date_arrivee < date_depart'))
+    date_depart = db.Column(db.Date)
+    IDgenre = db.Column(db.Integer, nullable=False)
 
-# class Utilisateur(db.Model, UserMixin):
-#     __tablename__ = "utilisateur"
-#     id = db.Column(db.Integer, primary_key=True)
-#     nom = db.Column(db.String(100))
-#     prenom = db.Column(db.String(100))
-#     email = db.Column(db.String(100), unique=True)
-#     modifications = db.Column(db.Boolean)
-#     password = db.Column(db.String(100))
-#     id_role = db.Column(db.Integer, db.ForeignKey("role.id"))
-#     role = db.relationship("Role",
-#                            backref=db.backref("utilisateurs", lazy="dynamic"))
+class Concert(db.Model):
+    __tablename__ = 'CONCERT'
+    IDconcert = db.Column(db.Integer, primary_key=True)
+    nom_concert = db.Column(db.String(42))
+    prix = db.Column(db.Float)
 
-#     def __repr__(self):
-#         return "<Utilisateur (%d) %s %r>" % (self.id, self.nom, self.prenom)
+class EtreFavori(db.Model):
+    __tablename__ = 'ETRE_FAVORI'
+    IDartiste = db.Column(db.Integer, db.ForeignKey("ARTISTE.IDartiste"))
+    IDutil = db.Column(db.Integer, db.ForeignKey("UTILISATEUR.IDutil"))
+    artiste = db.relationship("Artiste", backref=db.backref("favoris", lazy="dynamic"))
+    utilisateur = db.relationship("Utilisateur", backref=db.backref("favoris", lazy="dynamic"))
 
-#     def is_prof(self):
-#         """Vérifie si l'utilisateur passé en paramètres est un professeur
+class GenreMusical(db.Model):
+    __tablename__ = 'GENRE_MUSICAL'
+    IDgenre = db.Column(db.Integer, primary_key=True)
+    nom_genre = db.Column(db.String(42))
 
-#         Args:
-#             user (Utilisateur): un utilisateur
+class Hebergement(db.Model):
+    __tablename__ = 'HEBERGEMENT'
+    IDhebergement = db.Column(db.Integer, primary_key=True)
+    nom_hebergement = db.Column(db.String(42), nullable=False)
+    nb_places = db.Column(db.Integer)
 
-#         Returns:
-#             boolean: True si l'utilisateur est un professeur, False sinon
-#         """
-#         role = Role.query.filter(Role.intitule == "Professeur").scalar()
-#         return role.id == self.id_role
+class Loger(db.Model):
+    __tablename__ = "LOGER"
+    IDartiste = db.Column(db.Integer, db.ForeignKey("ARTISTE.IDartiste"))
+    IDhebergement = db.Column(db.Integer, db.ForeignKey("HEBERGEMENT.IDhebergement"))
+    nb_Jours = db.Column(db.Integer)
+    artiste = db.relationship("Artiste", backref=db.backref("logements", lazy="dynamic"))
+    hebergement = db.relationship("Hebergement", backref=db.backref("logements", lazy="dynamic"))
 
-#     def is_admin(self):
-#         """Vérifie si l'utilisateur passé en paramètres est un admin
+class Membres(db.Model):
+    __tablename__ = "MEMBRES"
+    IDmembre = db.Column(db.Integer, primary_key=True)
+    nom_membre = db.Column(db.String(42))
+    description = db.Column(db.Text)
+    instrument = db.Column(db.String(42))
+    IDartiste = db.Column(db.Integer)
+    artiste = db.relationship("Artiste", backref=db.backref("membres", lazy="dynamic"))
 
-#         Args:
-#             user (Utilisateur): un utilisateur
+class Photos(db.Model):
+    __tablename__ = "PHOTOS"
+    IDphoto = db.Column(db.Integer, primary_key=True)
+    nom_photo = db.Column(db.String(42))
+    lien_photo = db.Column(db.String(100), unique=True, nullable=False)
+    IDartiste = db.Column(db.Integer)
+    artiste = db.relationship("Artiste", backref=db.backref("photos", lazy="dynamic"))
 
-#         Returns:
-#             boolean: True si l'utilisateur est un admin, False sinon
-#         """
-#         role = Role.query.filter(Role.intitule == "Administrateur").scalar()
-#         return role.id == self.id_role
+class Programmer(db.Model):
+    __tablename__ = "PROGRAMMER"
+    IDconcert = db.Column(db.Integer, primary_key=True)
+    date_debut = db.Column(db.Date, primary_key=True)
+    heure_debut = db.Column(db.Time, primary_key=True)
+    IDartiste = db.Column(db.Integer, db.ForeignKey("ARTISTE.IDartiste"))
+    lieu_concert = db.Column(db.String(42))
+    duree_concert = db.Column(db.Time, nullable=False)
+    tps_montage = db.Column(db.Time, nullable=False)
+    tps_demontage = db.Column(db.Time, nullable=False)
+    artiste = db.relationship("Artiste", backref=db.backref("programme", lazy="dynamic"))
 
-#     def is_etablissement(self):
-#         """Vérifie si l'utilisateur passé en paramètres est un établissement
+class ReseauxSociaux(db.Model):
+    __tablename__ = "RESEAUX_SOCIAUX"
+    IDrs = db.Column(db.Integer, primary_key=True)
+    nom_plateforme = db.Column(db.String(42))
+    lien_rs = db.Column(db.String(100), unique=True, nullable=False)
+    IDartiste = db.Column(db.Integer)
+    artiste = db.relationship("Artiste", backref=db.backref("reseau", lazy="dynamic"))
 
-#         Args:
-#             user (Utilisateur): un utilisateur
+class Reserver(db.Model):
+    __tablename__ = "RESERVER"
+    IDutil = db.Column(db.Integer, primary_key=True)
+    IDtype_billet = db.Column(db.Integer, primary_key=True)
+    IDconcert = db.Column(db.Integer, primary_key=True)
 
-#         Returns:
-#             boolean: True si l'utilisateur est un établissement, False sinon
-#         """
-#         role = Role.query.filter(Role.intitule == "Etablissement").scalar()
-#         return role.id == self.id_role
-    
-#     def get_id(self):
-#         return self.id
+class TypeBillet(db.Model):
+    __tablename__ = 'TYPE_BILLET'
+    IDtype_billet = db.Column(db.Integer, primary_key=True)
+    nom_type_billet = db.Column(db.String(42), unique=True)
 
-#     def get_role(self):
-#         return Role.query.filter(Role.id == self.id_role).scalar()
+class TypeUtilisateur(db.Model):
+    __tablename__ = 'TYPE_UTILISATEUR'
+    IDtype_util = db.Column(db.Integer, primary_key=True)
+    nom_type_util = db.Column(db.String(42), unique=True)
 
+class Utilisateur(db.Model):
+    __tablename__ = 'UTILISATEUR'
+    IDutil = db.Column(db.Integer, primary_key=True)
+    nom_util = db.Column(db.String(42))
+    prenom_util = db.Column(db.String(42))
+    mdp_util = db.Column(db.String(42), nullable=False, unique=True)
+    email_util = db.Column(db.String(60), nullable=False, unique=True)
+    date_de_naissance = db.Column(db.Date)
+    IDtype_util = db.Column(db.Integer, nullable=False)
+    typeutil = db.relationship("TypeUtilisateur", backref=db.backref("utilisateur", lazy="dynamic"))
 
-# class Domaine(db.Model):
-#     __tablename__ = "domaine"
-#     code = db.Column(db.Integer, primary_key=True)
-#     nom = db.Column(db.String(100))
-
-#     def __repr__(self):
-#         return "<Domaine (%d) %s>" % (self.code, self.nom)
-
-
-# class Categorie(db.Model):
-#     __tablename__ = "categorie"
-#     code = db.Column(db.Integer, primary_key=True)
-#     nom = db.Column(db.String(100))
-#     code_domaine = db.Column(db.Integer, db.ForeignKey("domaine.code"))
-#     domaine = db.relationship("Domaine",
-#                               backref=db.backref("categories", lazy="dynamic"))
-
-#     __table_args__ = (db.UniqueConstraint('code', 'code_domaine'),)
-
-#     def serialize(self):
-#         return {
-#             'codeC': self.code,
-#             'nom': self.nom,
-#             'codeD': self.code_domaine,
-#         }
-
-#     def __repr__(self):
-#         return "<Categorie (%d) %s %r>" % (self.code, self.nom, self.code_domaine)
-
-
-# class Materiel(db.Model):
-#     __tablename__ = "materiel"
-#     reference = db.Column(db.Integer, primary_key=True)
-#     nom = db.Column(db.String(100))
-#     rangement = db.Column(db.String(100))
-#     commentaire = db.Column(db.String(100))
-#     quantite_globale = db.Column(db.Integer)
-#     quantite_max = db.Column(db.Integer)
-#     unite = db.Column(db.String(100))
-#     quantite_restante = db.Column(db.Float)
-#     complements = db.Column(db.String(500))
-#     fiche_fds = db.Column(db.LargeBinary)
-#     date_peremption = db.Column(db.Date)
-#     seuil_quantite = db.Column(db.Integer)
-#     seuil_peremption = db.Column(db.Integer)
-#     image = db.Column(db.LargeBinary)
-#     code_categorie = db.Column(db.Integer, db.ForeignKey("categorie.code"))
-#     code_domaine = db.Column(db.Integer, db.ForeignKey("domaine.code"))
-#     categorie = db.relationship("Categorie",
-#                                 backref=db.backref("matériels",
-#                                                    lazy="dynamic"))
-#     domaine = db.relationship("Domaine",
-#                               backref=db.backref("matériels", lazy="dynamic"))
-
-#     def get_image(self):
-#         if self.image is not None:
-#             return b64encode(self.image).decode("utf-8")
-#         else:
-#             default_image_path = "static/images/black_square.png"
-#             with open(default_image_path, 'rb') as f:
-#                 default_image_data = f.read()
-#             return b64encode(default_image_data).decode("utf-8")
-
-#     def serialize(self):
-#         return {
-#             'reference': self.reference,
-#             'nom': self.nom,
-#             'quantite_globale': self.quantite_globale,
-#             'quantite_max': self.quantite_max,
-#             'unite': self.unite,
-#             'quantite_restante': self.quantite_restante,
-#             'complements': self.complements,
-#             'code_categorie': self.code_categorie,
-#             'code_domaine': self.code_domaine,
-#             'image': self.get_image(),
-#         }
-
-
-#     def __repr__(self):
-#         return "<Materiel (%d)>" % (self.reference)
-
-
-# class Commande(db.Model):
-#     __tablename__ = "commande"
-#     numero = db.Column(db.Integer, primary_key=True)
-#     date_commande = db.Column(db.Date)
-#     date_reception = db.Column(db.Date)
-#     statut = db.Column(db.String(100))
-#     quantite_commandee = db.Column(db.Integer)
-#     id_util = db.Column(db.Integer, db.ForeignKey("utilisateur.id"))
-#     ref_materiel = db.Column(db.Integer, db.ForeignKey("materiel.reference"))
-#     utilisateur = db.relationship("Utilisateur",
-#                                   backref=db.backref("commandes",
-#                                                      lazy="dynamic"))
-#     materiel = db.relationship("Materiel",
-#                                backref=db.backref("commandes", lazy="dynamic"))
-
-#     def __repr__(self):
-#         return "<Commande (%d) %s %r %e %c %d>" % (self.numero, self.date_commande, self.statut, self.date_reception, self.id_util, self.ref_materiel)
-
-
-# class Alerte(db.Model):
-#     __tablename__ = "alerte"
-#     id = db.Column(db.Integer, primary_key=True)
-#     commentaire = db.Column(db.String(150))
-#     ref_materiel = db.Column(db.Integer,
-#                              db.ForeignKey("materiel.reference"),
-#                              primary_key=True)
-#     materiel = db.relationship("Materiel",
-#                                backref=db.backref("alertes", lazy="dynamic"))
-
-#     def __repr__(self):
-#         return "<Alerte (%d) %s %r>" % (self.id, self.commentaire, self.ref_materiel)
-
-# @login_manager.user_loader
-# def load_user(user_id):
-#     return Utilisateur.query.get(int(user_id))
-
-# def filter_commands(txt, domaine, categorie, statut, commandes):
-#     liste_materiel = []
-#     for materiel in Materiel.query.all():
-#         if txt.upper() in materiel.nom.upper():
-#             liste_materiel.append(materiel)
-#     liste_commandes = []
-    
-#     for commande in commandes:
-#         if commande.materiel in liste_materiel:
-#             if commande.materiel.domaine.nom == domaine or domaine == "Domaine":
-#                 if commande.materiel.categorie.nom == categorie or categorie == "Categorie":
-#                     if commande.statut == statut or statut == "Statut":
-#                         liste_commandes.append(commande)
-
-#     return liste_commandes
+class Videos(db.Model):
+    __tablename__ = "VIDEOS"
+    IDvideo = db.Column(db.Integer, primary_key=True)
+    nom_video = db.Column(db.String(42))
+    lien_video = db.Column(db.String(100), unique=True, nullable=False)
+    IDartiste = db.Column(db.Integer)
+    artiste = db.relationship("Artiste", backref=db.backref("videos", lazy="dynamic"))

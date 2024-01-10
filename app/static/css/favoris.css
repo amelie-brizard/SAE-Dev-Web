@@ -52,7 +52,7 @@ select,
 }
 
 select {
-    flex-basis: 8%;
+    flex-basis: 11%;
     flex-grow: 0;
 }
 
@@ -62,7 +62,7 @@ select {
 }
 
 #datehourinput {
-    flex-basis: 13%;
+    flex-basis: 10%;
     flex-grow: 0;
     height: 3.1em;
 }
