@@ -22,18 +22,19 @@
         <input class="searchreset" type="button" value="Réinitialiser" oninput="change()">
     </form>
     <ul class="liste-billets">
+        {% for un_billet in les_billets %}
         <li class="billet-achete">
             <img class="icones-compte" src="{{ url_for('static', filename='images/icone_billets_black.png') }}"
                 alt="Icone profil">
-            <h2>Billet 1 jour</h2>
+            <h2>Billet {{ un_billet[0] }}</h2>
             <p><img class="petites-icone-pages" src="{{ url_for('static', filename='images/price_black.png') }}"
-                    alt="Icone prix"> 3 €</p>
+                    alt="Icone prix"> {{ un_billet[1] }} €</p>
             <p><img class="petites-icone-pages" src="{{ url_for('static', filename='images/calendar_date_black.png') }}"
-                    alt="Icone calendrier"> Du
-                ??/??/????<br>au ??/??/????</p>
+                    alt="Icone calendrier"> Du {{ un_billet[2] }}<br>au {{ un_billet[3] }}</p>
             <p><img class="petites-icone-pages" src="{{ url_for('static', filename='images/location_black.png') }}"
-                    alt="Icone lieu"> Paris</p>
+                    alt="Icone lieu"> {{ un_billet[4] }}</p>
         </li>
+        {% endfor %}
         <li class="billet-achete">
             <img class="icones-compte" src="{{ url_for('static', filename='images/icone_billets_black.png') }}"
                 alt="Icone profil">

@@ -1,6 +1,6 @@
 """Toute les routes et les Formulaires"""
 from .app import app
-# from .models import Materiel, Utilisateur, Domaine, Categorie, Role, Commande , filter_commands
+from .models import Activite, Artiste, Concert, EtreFavori, GenreMusical, Hebergement, Loger, Membres, Photos, Programmer, ReseauxSociaux, Reserver, TypeBillet, TypeUtilisateur, Utilisateur, Videos, get_infos_artistes, get_les_lieux, get_artistes_favoris, get_billets_achetes
 
 from flask import render_template
 # from flask import jsonify, render_template, url_for, redirect, request, flash
@@ -18,7 +18,7 @@ def accueil():
 
 @app.route("/programmation/")
 def programmation():
-    return render_template("programmation.html", accueil=False, id_page=1, moncompte=False)
+    return render_template("programmation.html", accueil=False, id_page=1, moncompte=False, les_artistes=get_infos_artistes(), les_styles=GenreMusical.query.all(), les_lieux=get_les_lieux())
 
 @app.route("/reservation/")
 # @login_required
@@ -46,12 +46,12 @@ def edition_informations():
 @app.route("/moncompte/mesfavoris/")
 # @login_required
 def mes_favoris():
-    return render_template("favoris.html", accueil=False, id_page=0, moncompte=False)
+    return render_template("favoris.html", accueil=False, id_page=0, moncompte=False, les_artistes=get_artistes_favoris(1), les_styles=GenreMusical.query.all(), les_lieux=get_les_lieux())
 
 @app.route("/moncompte/mesbillets/")
 # @login_required
 def mes_billets():
-    return render_template("billets-achetes.html", accueil=False, id_page=0, moncompte=False)
+    return render_template("billets-achetes.html", accueil=False, id_page=0, moncompte=False, les_billets=get_billets_achetes(1), les_styles=GenreMusical.query.all(), les_lieux=get_les_lieux())
 
 @app.route("/infosartiste/")
 def infos_artiste():

@@ -12,64 +12,37 @@
         <input type="search" name="search" id="searchinput" placeholder="Rechercher" oninput="change()">
         <select name="Style" id="Style" onchange="change()">
             <option value="">Style</option>
-            <!-- TODO -->
+            {% for un_style in les_styles %}
+            <option value="{{ un_style.IDgenre }}">{{ un_style.nom_genre }}</option>
+            {% endfor %}
         </select>
         <select name="Lieu" id="Lieu" onchange="change()">
             <option value="">Lieu</option>
-            <!-- TODO -->
+            {% for un_lieu in les_lieux %}
+            <option value="">{{ un_lieu }}</option>
+            {% endfor %}
         </select>
         <input type="date" name="datehour" id="datehourinput" oninput="change()">
         <input class="searchreset" type="button" value="Réinitialiser" oninput="change()">
     </form>
+    {% if les_artistes|length == 0 %}
+    <p>Aucun artiste n'est dans vos favoris.</p>
+    {% endif %}
     <ul class="liste-artistes">
+        {% for un_artiste in les_artistes %}
         <li>
             <img class="image-artiste" src="{{ url_for('static', filename='images/placeholder_artiste.jpg') }}" alt="">
-            <h2>Aliquam LIGULA</h2>
-            <p>Style : EDM</p>
-            <p>Du ??/??/????<br>au ??/??/????</p>
-            <p>Paris</p>
+            <h2>{{ un_artiste[0] }}</h2>
+            <p><img class="petites-icone-pages" src="{{ url_for('static', filename='images/music_style.png') }}"
+                    alt="Icone style de musique"> Style
+                : {{ un_artiste[1] }}</p>
+            <p><img class="petites-icone-pages" src="{{ url_for('static', filename='images/calendar_date.png') }}"
+                    alt="Icone calendrier"> Du {{ un_artiste[2] }}<br>au {{ un_artiste[3] }}</p>
+            <p><img class="petites-icone-pages" src="{{ url_for('static', filename='images/location.png') }}"
+                    alt="Icone lieu"> {{ un_artiste[4] }}</p>
             <button>Voir plus</button>
         </li>
-        <li>
-            <img class="image-artiste" src="{{ url_for('static', filename='images/placeholder_artiste.jpg') }}" alt="">
-            <h2>Felis MAURIS</h2>
-            <p>Style : Jazz</p>
-            <p>Du ??/??/????<br>au ??/??/????</p>
-            <p>Paris</p>
-            <button>Voir plus</button>
-        </li>
-        <li>
-            <img class="image-artiste" src="{{ url_for('static', filename='images/placeholder_artiste.jpg') }}" alt="">
-            <h2>Aenean ORCI</h2>
-            <p>Style : Pop</p>
-            <p>Du ??/??/????<br>au ??/??/????</p>
-            <p>Paris</p>
-            <button>Voir plus</button>
-        </li>
-        <li>
-            <img class="image-artiste" src="{{ url_for('static', filename='images/placeholder_artiste.jpg') }}" alt="">
-            <h2>Aliquam LIGULA</h2>
-            <p>Style : EDM</p>
-            <p>Du ??/??/????<br>au ??/??/????</p>
-            <p>Paris</p>
-            <button>Voir plus</button>
-        </li>
-        <li>
-            <img class="image-artiste" src="{{ url_for('static', filename='images/placeholder_artiste.jpg') }}" alt="">
-            <h2>Felis MAURIS</h2>
-            <p>Style : Jazz</p>
-            <p>Du ??/??/????<br>au ??/??/????</p>
-            <p>Paris</p>
-            <button>Voir plus</button>
-        </li>
-        <li>
-            <img class="image-artiste" src="{{ url_for('static', filename='images/placeholder_artiste.jpg') }}" alt="">
-            <h2>Aenean ORCI</h2>
-            <p>Style : Pop</p>
-            <p>Du ??/??/????<br>au ??/??/????</p>
-            <p>Paris</p>
-            <button>Voir plus</button>
-        </li>
+        {% endfor %}
     </ul>
 </main>
 {% endblock %}

@@ -165,3 +165,57 @@ class Videos(db.Model):
     lien_video = db.Column(db.String(100), unique=True, nullable=False)
     IDartiste = db.Column(db.Integer, db.ForeignKey("ARTISTE.IDartiste"))
     artiste = db.relationship("Artiste", backref=db.backref("videos", lazy="dynamic"))
+
+
+def get_infos_artistes():
+    res = []
+    for un_artiste in Artiste.query.all():
+        programmation = Programmer.query.filter(Programmer.IDartiste == un_artiste.IDartiste).scalar()
+        if programmation is not None:
+            res.append((un_artiste.nom_artiste,
+                        GenreMusical.query.get(un_artiste.IDgenre).nom_genre,
+                        un_artiste.date_arrivee, un_artiste.date_depart,
+                        programmation.lieu_concert))
+    return res
+
+def get_les_lieux():
+    res = set()
+    for programmation in Programmer.query.all():
+        res.add(programmation.lieu_concert)
+    return res
+
+def get_artistes_favoris(idutil):
+    res = []
+    les_favoris = EtreFavori.query.filter(EtreFavori.IDutil == idutil)
+    for un_favori in les_favoris:
+        un_artiste = Artiste.query.get(un_favori.IDartiste)
+        programmation = Programmer.query.filter(Programmer.IDartiste == un_artiste.IDartiste).scalar()
+        if programmation is not None:
+            res.append((un_artiste.nom_artiste,
+                        GenreMusical.query.get(un_artiste.IDgenre).nom_genre,
+                        un_artiste.date_arrivee, un_artiste.date_depart,
+                        programmation.lieu_concert))
+    return res
+
+def get_billets_achetes(idutil):
+    res = []
+    les_reservation = Reserver.query.filter(Reserver.IDutil == idutil)
+    for une_reservation in les_reservation:
+        concert = Concert.query.get(une_reservation.IDconcert)
+        date_concert = Programmer.query.filter(Programmer.IDconcert == concert.IDconcert).scalar().date_debut
+        if une_reservation.IDtype_billet == 1:
+            date_fin = date_concert
+            prix = concert.prix // 7
+        elif une_reservation.IDtype_billet == 2:
+            print(type(date_concert))
+            date_fin = str(date_concert.day) + str(date_concert.month) + str(date_concert.year)
+            prix = (concert.prix // 7) * 2
+        else:
+            date_fin = "????-??-??"
+            prix = concert.prix
+        res.append((TypeBillet.query.get(une_reservation.IDtype_billet).nom_type_billet,
+                    prix,
+                    date_concert,
+                    date_fin, 
+                    Programmer.query.filter(Programmer.IDconcert == concert.IDconcert).scalar().lieu_concert))
+    return res
