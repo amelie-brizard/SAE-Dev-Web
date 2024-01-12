@@ -245,3 +245,9 @@ def get_billets_achetes(idutil):
                     date_fin,
                     Programmer.query.filter(Programmer.IDconcert == concert.IDconcert).scalar().lieu_concert))
     return res
+
+def get_informations_profil(idutil):
+    return (Utilisateur.query.get(idutil).prenom_util, 
+            Utilisateur.query.get(idutil).nom_util,
+            Utilisateur.query.get(idutil).email_util,
+            Utilisateur.query.get(idutil).mdp_util)

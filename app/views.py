@@ -1,6 +1,6 @@
 """Toute les routes et les Formulaires"""
 from .app import app
-from .models import Activite, Artiste, Concert, EtreFavori, GenreMusical, Hebergement, Loger, Membres, Photos, Programmer, ReseauxSociaux, Reserver, TypeBillet, TypeUtilisateur, Utilisateur, Videos, get_infos_artistes, get_les_lieux, get_artistes_favoris, get_billets_achetes
+from .models import Activite, Artiste, Concert, EtreFavori, GenreMusical, Hebergement, Loger, Membres, Photos, Programmer, ReseauxSociaux, Reserver, TypeBillet, TypeUtilisateur, Utilisateur, Videos, get_infos_artistes, get_les_lieux, get_artistes_favoris, get_billets_achetes, get_informations_profil
 
 from flask import render_template
 # from flask import jsonify, render_template, url_for, redirect, request, flash
@@ -41,7 +41,7 @@ def espace_compte():
 @app.route("/moncompte/mesinformations/")
 # @login_required
 def edition_informations():
-    return render_template("compte-infos.html", accueil=False, id_page=0, moncompte=False)
+    return render_template("compte-infos.html", accueil=False, id_page=0, moncompte=False, mes_infos=get_informations_profil(1))
 
 @app.route("/moncompte/mesfavoris/")
 # @login_required
