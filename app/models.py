@@ -2,6 +2,7 @@ from base64 import b64encode
 # from .app import db, login_manager
 from .app import db
 import datetime
+from sqlalchemy import func
 # from flask_login import UserMixin
 
 # from flask_sqlalchemy import CheckConstraint
@@ -172,9 +173,11 @@ def get_infos_artistes():
     for un_artiste in Artiste.query.all():
         programmation = Programmer.query.filter(Programmer.IDartiste == un_artiste.IDartiste).scalar()
         if programmation is not None:
+            date_debut = str(un_artiste.date_arrivee.day) + "/" + str(un_artiste.date_arrivee.month) + "/" + str(un_artiste.date_arrivee.year)
+            date_fin = str(un_artiste.date_depart.day) + "/" + str(un_artiste.date_depart.month) + "/" + str(un_artiste.date_depart.year)
             res.append((un_artiste.nom_artiste,
                         GenreMusical.query.get(un_artiste.IDgenre).nom_genre,
-                        un_artiste.date_arrivee, un_artiste.date_depart,
+                        date_debut, date_fin,
                         programmation.lieu_concert))
     return res
 
@@ -191,31 +194,54 @@ def get_artistes_favoris(idutil):
         un_artiste = Artiste.query.get(un_favori.IDartiste)
         programmation = Programmer.query.filter(Programmer.IDartiste == un_artiste.IDartiste).scalar()
         if programmation is not None:
+            date_debut = str(un_artiste.date_arrivee.day) + "/" + str(un_artiste.date_arrivee.month) + "/" + str(un_artiste.date_arrivee.year)
+            date_fin = str(un_artiste.date_depart.day) + "/" + str(un_artiste.date_depart.month) + "/" + str(un_artiste.date_depart.year)
             res.append((un_artiste.nom_artiste,
                         GenreMusical.query.get(un_artiste.IDgenre).nom_genre,
-                        un_artiste.date_arrivee, un_artiste.date_depart,
+                        date_debut, date_fin,
                         programmation.lieu_concert))
     return res
+
+def get_date_fin_concert(idconcert):
+    subquery = (
+        db.session.query(
+            Artiste.IDartiste,
+            func.max(Artiste.date_depart).label("max_date_depart")
+        )
+        .join(Programmer, Artiste.IDartiste == Programmer.IDartiste)
+        .filter(Programmer.IDconcert == idconcert)
+        .group_by(Artiste.IDartiste)
+        .subquery()
+    )
+
+    return (
+        db.session.query(subquery.c.max_date_depart)
+        .filter(Artiste.IDartiste == subquery.c.IDartiste)
+        .scalar()
+    )
 
 def get_billets_achetes(idutil):
     res = []
     les_reservation = Reserver.query.filter(Reserver.IDutil == idutil)
     for une_reservation in les_reservation:
         concert = Concert.query.get(une_reservation.IDconcert)
-        date_concert = Programmer.query.filter(Programmer.IDconcert == concert.IDconcert).scalar().date_debut
+        date_debut_concert = Programmer.query.filter(Programmer.IDconcert == concert.IDconcert).scalar().date_debut
+        date_fin_concert = get_date_fin_concert(concert.IDconcert)
+        nb_jours = int((date_fin_concert - date_debut_concert).days)
+        date_debut = str(date_debut_concert.day) + "/" + str(date_debut_concert.month) + "/" + str(date_debut_concert.year)
         if une_reservation.IDtype_billet == 1:
-            date_fin = date_concert
-            prix = concert.prix // 7
+            date_fin = date_debut
+            prix = concert.prix // nb_jours
         elif une_reservation.IDtype_billet == 2:
-            print(type(date_concert))
-            date_fin = str(date_concert.day) + str(date_concert.month) + str(date_concert.year)
-            prix = (concert.prix // 7) * 2
+            print(type(date_debut_concert))
+            date_fin = date_debut
+            prix = (concert.prix // nb_jours) * 2
         else:
-            date_fin = "????-??-??"
+            date_fin = date_fin_concert
             prix = concert.prix
         res.append((TypeBillet.query.get(une_reservation.IDtype_billet).nom_type_billet,
                     prix,
-                    date_concert,
-                    date_fin, 
+                    date_debut,
+                    date_fin,
                     Programmer.query.filter(Programmer.IDconcert == concert.IDconcert).scalar().lieu_concert))
     return res
