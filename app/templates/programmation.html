@@ -13,13 +13,13 @@
         <select name="Style" id="Style">
             <option value="">Style</option>
             {% for un_style in les_styles %}
-            <option value="{{ un_style.IDgenre }}">{{ un_style.nom_genre }}</option>
+            <option value="{{ un_style.nom_genre }}">{{ un_style.nom_genre }}</option>
             {% endfor %}
         </select>
         <select name="Lieu" id="Lieu">
             <option value="">Lieu</option>
             {% for un_lieu in les_lieux %}
-            <option value="">{{ un_lieu }}</option>
+            <option value="{{ un_lieu }}">{{ un_lieu }}</option>
             {% endfor %}
         </select>
         <input type="date" name="datehour" id="datehourinput">

@@ -29,7 +29,7 @@ def programmation():
 @app.route("/reservation/")
 @login_required
 def reservation():
-    return render_template("reservation.html", accueil=False, id_page=2, moncompte=False)
+    return render_template("reservation.html", accueil=False, id_page=2, moncompte=False, les_billets=TypeBillet.query.all(), les_lieux=get_les_lieux())
 
 @app.route("/connexion/", methods=["GET", "POST"])
 def connexion():
@@ -84,7 +84,13 @@ def edition_informations():
 @app.route("/moncompte/mesfavoris/")
 @login_required
 def mes_favoris():
-    return render_template("favoris.html", accueil=False, id_page=0, moncompte=False, les_artistes=get_artistes_favoris(current_user.IDutil), les_styles=GenreMusical.query.all(), les_lieux=get_les_lieux())
+    return render_template("favoris.html",
+                           accueil=False,
+                           id_page=0,
+                           moncompte=False,
+                           les_artistes=get_artistes_favoris(current_user.IDutil),
+                           les_styles=GenreMusical.query.all(),
+                           les_lieux=get_les_lieux())
 
 @app.route("/moncompte/mesbillets/")
 @login_required

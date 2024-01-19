@@ -40,7 +40,7 @@
                     alt="Icone calendrier"> Du {{ un_artiste[2] }}<br>au {{ un_artiste[3] }}</p>
             <p><img class="petites-icone-pages" src="{{ url_for('static', filename='images/location.png') }}"
                     alt="Icone lieu"> {{ un_artiste[4] }}</p>
-            <button>Voir plus</button>
+            <a href="{{ url_for('infos_artiste', idartiste=un_artiste[5]) }}"><button>Voir plus</button></a>
         </li>
         {% endfor %}
     </ul>

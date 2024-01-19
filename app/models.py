@@ -202,8 +202,11 @@ def get_artistes_favoris(idutil):
             date_fin = str(un_artiste.date_depart.day) + "/" + str(un_artiste.date_depart.month) + "/" + str(un_artiste.date_depart.year)
             res.append((un_artiste.nom_artiste,
                         GenreMusical.query.get(un_artiste.IDgenre).nom_genre,
-                        date_debut, date_fin,
-                        programmation.lieu_concert, un_artiste.IDartiste, Photos.query.filter(Photos.IDartiste == un_artiste.IDartiste)))
+                        date_debut,
+                        date_fin,
+                        programmation.lieu_concert,
+                        un_artiste.IDartiste,
+                        Photos.query.filter(Photos.IDartiste == un_artiste.IDartiste)))
     return res
 
 def get_date_fin_concert(idconcert):
@@ -278,7 +281,7 @@ def seachartist_bd(name, genre, location, date):
         if programmation:
             date_debut = str(un_artiste.date_arrivee.day) + "/" + str(un_artiste.date_arrivee.month) + "/" + str(un_artiste.date_arrivee.year)
             date_fin = str(un_artiste.date_depart.day) + "/" + str(un_artiste.date_depart.month) + "/" + str(un_artiste.date_depart.year)
-            res.append((un_artiste.nom_artiste, genre_musical.nom_genre, date_debut, date_fin, programmation.lieu_concert))
+            res.append((un_artiste.nom_artiste, genre_musical.nom_genre, date_debut, date_fin, programmation.lieu_concert, un_artiste.IDartiste))
 
     return res
 

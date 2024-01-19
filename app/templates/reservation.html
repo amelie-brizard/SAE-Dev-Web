@@ -12,15 +12,17 @@
         <div class="portion-formulaire">
             <label for="typebillet">Type de billet</label>
             <select class="menuderoulant" name="typebillet" id="typebillet" onchange="change()">
-                <option value=""></option>
-                <!-- TODO -->
+                {% for un_billet in les_billets %}
+                <option value="{{ un_billet.IDtype_billet }}">{{ un_billet.nom_type_billet }}</option>
+                {% endfor %}
             </select>
         </div>
         <div class="portion-formulaire">
             <label for="lieubillet">Lieu</label>
             <select class="menuderoulant" name="lieubillet" id="lieubillet" onchange="change()">
-                <option value=""></option>
-                <!-- TODO -->
+                {% for un_lieu in les_lieux %}
+                <option value="{{ un_lieu }}">{{ un_lieu }}</option>
+                {% endfor %}
             </select>
         </div>
         <div class="coordonnees-bancaires">
