@@ -1,45 +1,35 @@
 {% extends "base.html" %}
 {% block titre %}
-<title>(Nom artiste) - FestIUTO</title>
+<title>{{ un_artiste.nom_artiste }} - FestIUTO</title>
 {% endblock %}
 {% block styles %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/infos-artistes.css') }}">
 {% endblock %}
 {% block content %}
 <main>
-    <h1 class="titre-principal-page">(Nom artiste)</h1>
+    <h1 class="titre-principal-page">{{ un_artiste.nom_artiste }}</h1>
     <div class="boite-images">
         <img class="cadre-artiste" src="{{ url_for('static', filename='images/cadre_artiste.png') }}"
             alt="Cadre photo artiste">
-        <img class="image-artiste" src="{{ url_for('static', filename='images/placeholder_artiste.jpg') }}" alt="">
+        {% if not photos %}
+        <img class="image-artiste" src="{{ url_for('static', filename='images/placeholder_artiste.jpg') }}"
+            alt="Image par défaut">
+        {% else %}
+        <img class="image-artiste" src="{{ photos.lien_photo }}" alt="Image de l'artiste">
+        {% endif %}
     </div>
     <section>
         <h2>À propos</h2>
         <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tincidunt, leo feugiat volutpat
-            ullamcorper, felis eros gravida elit, at egestas sem dui id diam. Praesent auctor mauris nec neque
-            consequat pharetra. Pellentesque in auctor tellus. Aenean sed dui turpis. Nunc dapibus quam sed mollis
-            pulvinar. Mauris eget finibus neque. Nam nec dolor lectus. Donec porttitor est euismod arcu mollis
-            ultricies. Praesent malesuada purus at sapien hendrerit egestas. Maecenas orci dolor, interdum quis ante
-            et, viverra mattis nisi. Sed id varius enim. Proin suscipit augue nisl, quis pharetra lacus laoreet non.
-            Curabitur a dui urna. Nunc iaculis rhoncus elementum. Pellentesque in dui quam. Aliquam sit amet mi eu
-            dolor consectetur sollicitudin. Pellentesque ex erat, eleifend ac felis et, malesuada vulputate magna.
-            Maecenas non turpis et tellus fringilla consectetur sed ut lectus. Morbi elit nulla, malesuada cursus
-            semper sit amet, varius in ex. Sed efficitur tellus nec dignissim ultrices. Aenean at pretium ex. Donec
-            ultricies sagittis massa, eu consectetur diam molestie nec. Aliquam erat volutpat. Nam lacinia urna
-            nisl, quis ullamcorper elit placerat quis. Donec sit amet molestie est, eu finibus lorem. Ut non eros et
-            eros volutpat aliquet non in urna. Cras sapien diam, vestibulum ut bibendum at, vulputate vitae odio.
-            Morbi ut massa id lorem varius placerat. Integer tristique turpis felis, ac feugiat mi iaculis nec.
-            Donec id felis ligula. Nam non mauris sit amet turpis cursus varius faucibus sed lectus. Maecenas a ante
-            at risus convallis ultrices sit amet nec nisi. Donec finibus faucibus pharetra.
+            {{ un_artiste.description }}
         </p>
         <p><img class="petites-icone-pages" src="{{ url_for('static', filename='images/music_style.png') }}"
-                alt="Icone style de musique"> Style : EDM</p>
+                alt="Icone style de musique"> Style : {{ style.nom_genre }}</p>
     </section>
     <section>
         <h2>Programme</h2>
         <h3><img class="petites-icone-pages" src="{{ url_for('static', filename='images/location.png') }}"
-                alt="Icone lieu"> Paris</h3>
+                alt="Icone lieu"> {{ programmer.lieu_concert }}</h3>
         <table>
             <thead>
                 <tr>
@@ -54,14 +44,13 @@
             <tbody>
                 <tr>
                     <td class="contenu-gauche-tab">
-                        15/12/2023
+                        {{ programmer.date_debut }}
                     </td>
                     <td class="contenu-droit-tab">
-                        10h - 12h<br>
-                        14h - 16h
+                        {{ programmer.heure_debut }}
                     </td>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td class="contenu-gauche-tab">
                         18/12/2023
                     </td>
@@ -69,20 +58,16 @@
                         12h - 14h<br>
                         18h - 20h
                     </td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
     </section>
     <section>
         <h2>Activités</h2>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tincidunt, leo feugiat volutpat
-            ullamcorper, felis eros gravida elit, at egestas sem dui id diam. Praesent auctor mauris nec neque
-            consequat pharetra. Pellentesque in auctor tellus. Aenean sed dui turpis. Nunc dapibus quam sed mollis
-            pulvinar. Mauris eget finibus neque. Nam nec dolor lectus. Donec porttitor est euismod arcu mollis
-            ultricies. Praesent malesuada purus at sapien hendrerit egestas. Maecenas orci dolor, interdum quis ante
-            et, viverra mattis nisi. Sed id varius enim. Proin suscipit augue nisl, quis pharetra lacus laoreet non.
-        </p>
+        <h3>{{ activite.nom_activite }}</h3>
+        <p>{{ activite.description_activite }}</p>
+        <p>Date : {{ activite.date }} | Heure : {{ activite.heure }} </p>
+        <p>Lieu: {{ activite.lieu }}</p>
     </section>
 </main>
 {% endblock %}

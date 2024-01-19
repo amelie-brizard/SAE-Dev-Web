@@ -8,22 +8,22 @@
 {% block content %}
 <main>
     <h1 class="titre-principal-page">Programmation</h1>
-    <form id="search" action="recherche" role="search" method="post">
-        <input type="search" name="search" id="searchinput" placeholder="Rechercher" oninput="change()">
-        <select name="Style" id="Style" onchange="change()">
+    <form id="search" action="{{ url_for('searchartist') }}" role="search" method="post">
+        <input type="search" name="search" id="searchinput" placeholder="Rechercher">
+        <select name="Style" id="Style">
             <option value="">Style</option>
             {% for un_style in les_styles %}
             <option value="{{ un_style.IDgenre }}">{{ un_style.nom_genre }}</option>
             {% endfor %}
         </select>
-        <select name="Lieu" id="Lieu" onchange="change()">
+        <select name="Lieu" id="Lieu">
             <option value="">Lieu</option>
             {% for un_lieu in les_lieux %}
             <option value="">{{ un_lieu }}</option>
             {% endfor %}
         </select>
-        <input type="date" name="datehour" id="datehourinput" oninput="change()">
-        <input class="searchreset" type="button" value="Réinitialiser" oninput="change()">
+        <input type="date" name="datehour" id="datehourinput">
+        <input class="searchreset" type="submit" value="Rechercher">
     </form>
     <ul class="liste-artistes">
         {% for un_artiste in les_artistes %}
@@ -37,7 +37,7 @@
                     alt="Icone calendrier"> Du {{ un_artiste[2] }}<br>au {{ un_artiste[3] }}</p>
             <p><img class="petites-icone-pages" src="{{ url_for('static', filename='images/location.png') }}"
                     alt="Icone lieu"> {{ un_artiste[4] }}</p>
-            <button>Voir plus</button>
+            <a href="{{ url_for('infos_artiste', idartiste=un_artiste[5]) }}"><button>Voir plus</button></a>
         </li>
         {% endfor %}
     </ul>

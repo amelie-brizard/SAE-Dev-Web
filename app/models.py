@@ -1,11 +1,8 @@
-from base64 import b64encode
-# from .app import db, login_manager
-from .app import db
+# from base64 import b64encode
+from .app import db, login_manager
 import datetime
 from sqlalchemy import func
-# from flask_login import UserMixin
-
-# from flask_sqlalchemy import CheckConstraint
+from flask_login import UserMixin
 
 class Activite(db.Model):
     __tablename__ = 'ACTIVITES'
@@ -139,7 +136,7 @@ class TypeUtilisateur(db.Model):
     IDtype_util = db.Column(db.Integer, primary_key=True)
     nom_type_util = db.Column(db.String(42), unique=True)
 
-class Utilisateur(db.Model):
+class Utilisateur(db.Model, UserMixin):
     __tablename__ = 'UTILISATEUR'
     IDutil = db.Column(db.Integer, primary_key=True)
     nom_util = db.Column(db.String(42))
@@ -158,6 +155,13 @@ class Utilisateur(db.Model):
         self.email_util = email_util
         self.date_de_naissance = datetime.date.fromisoformat(date_de_naissance)
         self.IDtype_util = IDtype_util
+
+    def get_id(self):
+        return int(self.IDutil)
+
+    def is_admin(self):
+        role = TypeUtilisateur.query.filter(TypeUtilisateur.nom_type_util == "Administrateur").scalar()
+        return role.IDtype_util == self.IDtype_util
 
 class Videos(db.Model):
     __tablename__ = "VIDEOS"
@@ -178,7 +182,7 @@ def get_infos_artistes():
             res.append((un_artiste.nom_artiste,
                         GenreMusical.query.get(un_artiste.IDgenre).nom_genre,
                         date_debut, date_fin,
-                        programmation.lieu_concert))
+                        programmation.lieu_concert, un_artiste.IDartiste, Photos.query.filter(Photos.IDartiste == un_artiste.IDartiste)))
     return res
 
 def get_les_lieux():
@@ -199,7 +203,7 @@ def get_artistes_favoris(idutil):
             res.append((un_artiste.nom_artiste,
                         GenreMusical.query.get(un_artiste.IDgenre).nom_genre,
                         date_debut, date_fin,
-                        programmation.lieu_concert))
+                        programmation.lieu_concert, un_artiste.IDartiste, Photos.query.filter(Photos.IDartiste == un_artiste.IDartiste)))
     return res
 
 def get_date_fin_concert(idconcert):
@@ -247,7 +251,47 @@ def get_billets_achetes(idutil):
     return res
 
 def get_informations_profil(idutil):
-    return (Utilisateur.query.get(idutil).prenom_util, 
+    return (Utilisateur.query.get(idutil).prenom_util,
             Utilisateur.query.get(idutil).nom_util,
             Utilisateur.query.get(idutil).email_util,
             Utilisateur.query.get(idutil).mdp_util)
+
+def seachartist_bd(name, genre, location, date):
+    query = db.session.query(Artiste, Programmer, GenreMusical).\
+        outerjoin(Programmer, Artiste.IDartiste == Programmer.IDartiste).\
+        outerjoin(GenreMusical, Artiste.IDgenre == GenreMusical.IDgenre)
+
+    if name != "":
+        query = query.filter(Artiste.nom_artiste.ilike(f"%{name}%"))
+
+    if genre != "":
+        query = query.filter(GenreMusical.nom_genre == genre)
+
+    if location != "":
+        query = query.filter(Programmer.lieu_concert == location)
+
+    if date:
+        query = query.filter(Programmer.date_debut == date)
+
+    res = []
+    for un_artiste, programmation, genre_musical in query.all():
+        if programmation:
+            date_debut = str(un_artiste.date_arrivee.day) + "/" + str(un_artiste.date_arrivee.month) + "/" + str(un_artiste.date_arrivee.year)
+            date_fin = str(un_artiste.date_depart.day) + "/" + str(un_artiste.date_depart.month) + "/" + str(un_artiste.date_depart.year)
+            res.append((un_artiste.nom_artiste, genre_musical.nom_genre, date_debut, date_fin, programmation.lieu_concert))
+
+    return res
+
+@login_manager.user_loader
+def load_user(user_id):
+    return Utilisateur.query.get(int(user_id))
+
+def get_les_photos_artiste(idartiste):
+    return Photos.query.filter(Photos.IDartiste == idartiste).scalar()
+
+def get_genre_musical_artiste(idartiste):
+    un_artiste = Artiste.query.get(idartiste)
+    return GenreMusical.query.filter(un_artiste.IDgenre == GenreMusical.IDgenre).scalar()
+
+def get_programmation_artiste(idartiste):
+    return Programmer.query.filter(Programmer.IDartiste == idartiste).scalar()

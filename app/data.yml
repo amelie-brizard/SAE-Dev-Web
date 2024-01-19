@@ -58,8 +58,8 @@ LOGER:
   - {IDartiste: 3, IDhebergement: 3, nb_Jours: 4}
 
 PHOTOS:
-  - {IDphoto: 1, nom_photo: 'Photo 1', lien_photo: 'https://example.com/photo1.jpg', IDartiste: 1}
-  - {IDphoto: 2, nom_photo: 'Photo 2', lien_photo: 'https://example.com/photo2.jpg', IDartiste: 2}
+  - {IDphoto: 1, nom_photo: 'Photo 1', lien_photo: 'https://as2.ftcdn.net/v2/jpg/05/74/97/93/1000_F_574979377_MuHTmYDWkyFyFDE9G2fhVTxxfohUDwSO.jpg', IDartiste: 1}
+  - {IDphoto: 2, nom_photo: 'Photo 2', lien_photo: 'https://www.rollingstone.com/wp-content/uploads/2022/02/5-Tips-for-Any-Artist-Looking-to-Release-New-Music.png', IDartiste: 2}
 
 VIDEOS:
   - {IDvideo: 1, nom_video: 'Vidéo 1', lien_video: 'https://example.com/video1.mp4', IDartiste: 1}

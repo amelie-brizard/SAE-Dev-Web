@@ -9,21 +9,21 @@
 <main>
     <h1 class="titre-principal-page">Mes favoris</h1>
     <form id="search" action="recherche" role="search" method="post">
-        <input type="search" name="search" id="searchinput" placeholder="Rechercher" oninput="change()">
-        <select name="Style" id="Style" onchange="change()">
+        <input type="search" name="search" id="searchinput" placeholder="Rechercher" oninput="changeArtist()">
+        <select name="Style" id="Style" onchange="changeArtist()">
             <option value="">Style</option>
             {% for un_style in les_styles %}
             <option value="{{ un_style.IDgenre }}">{{ un_style.nom_genre }}</option>
             {% endfor %}
         </select>
-        <select name="Lieu" id="Lieu" onchange="change()">
+        <select name="Lieu" id="Lieu" onchange="changeArtist()">
             <option value="">Lieu</option>
             {% for un_lieu in les_lieux %}
             <option value="">{{ un_lieu }}</option>
             {% endfor %}
         </select>
-        <input type="date" name="datehour" id="datehourinput" oninput="change()">
-        <input class="searchreset" type="button" value="Réinitialiser" oninput="change()">
+        <input type="date" name="datehour" id="datehourinput" oninput="changeArtist()">
+        <input class="searchreset" type="button" value="Réinitialiser" oninput="changeArtist()">
     </form>
     {% if les_artistes|length == 0 %}
     <p>Aucun artiste n'est dans vos favoris.</p>

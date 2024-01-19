@@ -70,6 +70,7 @@ main {
     position: absolute;
     z-index: 2;
     width: 23em;
+    height: 23em;
     bottom: 15%;
     left: 16%;
 }

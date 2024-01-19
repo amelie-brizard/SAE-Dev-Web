@@ -9,25 +9,22 @@
 <main>
     <h1 class="titre-principal-page">Mes informations</h1>
     <form action="" method="get" class="formulaire-inscription">
+        {{ form.hidden_tag() }}
         <div class="portion-formulaire-haute">
-            <label class="label-haut" for="name">Prénom</label>
-            <input class="champ-de-texte" type="text" name="firstname" id="firstname" placeholder="{{ mes_infos[0] }}"
-                required />
+            <label class="label-haut" for="name">{{ form.firstname.label }}</label>
+            {{ form.firstname(class="champ-de-texte", placeholder=form.firstname.default) }}
         </div>
         <div class="portion-formulaire-haute">
-            <label class="label-haut" for="name">Nom</label>
-            <input class="champ-de-texte" type="text" name="lastname" id="lastname" placeholder="{{ mes_infos[1] }}"
-                required />
+            <label class="label-haut" for="name">{{ form.lastname.label }}</label>
+            {{ form.lastname(class="champ-de-texte", placeholder=form.lastname.default) }}
         </div>
         <div class="portion-formulaire-basse">
-            <label class="label-bas" for="email">Adresse mail</label>
-            <input class="champ-de-texte" type="email" name="email" id="email" placeholder="{{ mes_infos[2] }}"
-                required />
+            <label class="label-bas" for="email">{{ form.email.label }}</label>
+            {{ form.email(class="champ-de-texte", placeholder=form.email.default) }}
         </div>
         <div class="portion-formulaire-basse">
-            <label class="label-bas" for="email">Mot de passe</label>
-            <input class="champ-de-texte" type="password" name="password" id="password" value="{{ mes_infos[3] }}"
-                required />
+            <label class="label-bas" for="email">{{ form.password.label }}</label>
+            {{ form.password(class="champ-de-texte") }}
         </div>
         <input class="bouton-validation" type="submit" value="Valider les modifications" />
     </form>

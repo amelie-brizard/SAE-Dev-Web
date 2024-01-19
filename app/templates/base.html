@@ -42,7 +42,7 @@
     {% if not moncompte %}
     <a href="{{ url_for('espace_compte') }}"><button class="espace-compte">Espace compte</button></a>
     {% else %}
-    <button class="espace-compte">Déconnexion</button>
+    <a href="{{ url_for('deconnexion') }}"><button class="espace-compte">Déconnexion</button></a>
     {% endif %}
   </header>
   {% block content %}

@@ -9,6 +9,7 @@ body {
 .image-artiste {
     border-radius: 50%;
     width: 8em;
+    height: 8em;
 }
 
 .liste-artistes {

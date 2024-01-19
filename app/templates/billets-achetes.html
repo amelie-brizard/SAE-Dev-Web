@@ -9,17 +9,17 @@
 <main>
     <h1 class="titre-principal-page">Mes billets</h1>
     <form id="search" action="recherche" role="search" method="post">
-        <input type="search" name="search" id="searchinput" placeholder="Rechercher" oninput="change()">
-        <select name="Style" id="Style" onchange="change()">
+        <input type="search" name="search" id="searchinput" placeholder="Rechercher" oninput="changeBillet()">
+        <select name="Style" id="Style" onchange="changeBillet()">
             <option value="">Type</option>
             <!-- TODO -->
         </select>
-        <select name="Lieu" id="Lieu" onchange="change()">
+        <select name="Lieu" id="Lieu" onchange="changeBillet()">
             <option value="">Lieu</option>
             <!-- TODO -->
         </select>
-        <input type="date" name="datehour" id="datehourinput" oninput="change()">
-        <input class="searchreset" type="button" value="Réinitialiser" oninput="change()">
+        <input type="date" name="datehour" id="datehourinput" oninput="changeBillet()">
+        <input class="searchreset" type="button" value="Réinitialiser" oninput="changeBillet()">
     </form>
     {% if les_billets|length == 0 %}
     <p>Vous n'avez aucun billet acheté.</p>
