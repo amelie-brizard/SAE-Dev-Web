@@ -1,6 +1,5 @@
 from datetime import date
 import click
-import os
 from app.app import db, app
 from .models import Activite, Artiste, Concert, EtreFavori, GenreMusical, Hebergement, Loger, Membres, Photos, Programmer, ReseauxSociaux, Reserver, TypeBillet, TypeUtilisateur, Utilisateur, Videos
 import yaml

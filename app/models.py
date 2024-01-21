@@ -1,4 +1,3 @@
-# from base64 import b64encode
 from .app import db, login_manager
 import datetime
 from sqlalchemy import func

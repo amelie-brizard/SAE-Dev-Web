@@ -1,16 +1,10 @@
 """Toute les routes et les Formulaires"""
 from .app import app, db
-from .models import Activite, Artiste, Concert, EtreFavori, GenreMusical, Hebergement, Loger, Membres, Photos, Programmer, ReseauxSociaux, Reserver, TypeBillet, TypeUtilisateur, Utilisateur, Videos, get_infos_artistes, get_les_lieux, get_artistes_favoris, get_billets_achetes, get_informations_profil, seachartist_bd, get_les_photos_artiste, get_genre_musical_artiste, get_programmation_artiste
+from .models import Activite, Artiste, GenreMusical, TypeBillet, Videos, get_infos_artistes, get_les_lieux, get_artistes_favoris, get_billets_achetes, get_informations_profil, seachartist_bd, get_les_photos_artiste, get_genre_musical_artiste, get_programmation_artiste
 from .forms import LoginForm, ModificationForm
 
 from flask import render_template, request, url_for, redirect, flash
-# from flask import jsonify, render_template, url_for, redirect, request, flash
 from flask_login import login_required, login_user, logout_user, current_user
-# from flask_wtf import FlaskForm
-# from wtforms import StringField, HiddenField, PasswordField, SelectField, RadioField, IntegerField
-# from wtforms.validators import DataRequired, NumberRange
-from hashlib import sha256
-# from datetime import datetime
 
 @app.route("/")
 def accueil():
@@ -113,7 +107,7 @@ def infos_artiste(idartiste):
 
 @app.route("/gestionconcerts/")
 def gestion_concerts():
-    return render_template("gestion-concerts.html", accueil=True, id_page=0, moncompte=True)
+    return render_template("gestion-concerts.html", accueil=True, id_page=0, moncompte=True, nom_util=current_user.nom_util)
 
 @app.route('/searchartist/', methods=['GET', 'POST'])
 def searchartist():
